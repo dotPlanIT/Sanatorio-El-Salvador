@@ -1,0 +1,174 @@
+/* Comunes */
+body {
+	border-top: solid 10px #AE1B21;
+	margin:0px;
+	background-position:center bottom;
+	font-family: 'Droid Sans', sans-serif;
+	font-size:13px;
+}
+a{color:#439ca6}
+a:hover{color:#388189}
+
+input[type='submit']{
+	border: none;
+	border-radius:4px;
+	height:27px;
+	cursor:pointer;
+	color:#FFF;
+	font-size:14px;
+	margin-top:2%;
+	margin-bottom:2%;
+	text-transform:uppercase;
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(top,  #1e5799 0%, #439ca6 0%, #388189 99%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(0%,#439ca6), color-stop(99%,#388189)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1e5799 0%,#439ca6 0%,#388189 99%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1e5799 0%,#439ca6 0%,#388189 99%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1e5799 0%,#439ca6 0%,#388189 99%); /* IE10+ */
+	background: linear-gradient(to bottom,  #1e5799 0%,#439ca6 0%,#388189 99%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#388189',GradientType=0 ); /* IE6-9 */
+}
+
+input[type='submit']:hover{
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(top,  #1e5799 0%, #388189 0%, #439ca6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(0%,#388189), color-stop(100%,#439ca6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1e5799 0%,#388189 0%,#439ca6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1e5799 0%,#388189 0%,#439ca6 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1e5799 0%,#388189 0%,#439ca6 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #1e5799 0%,#388189 0%,#439ca6 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#439ca6',GradientType=0 ); /* IE6-9 */
+}
+
+input[type='text']{
+	border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    color: #555555;
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 6px;
+	width:70%;
+}
+input[type='text']:focus{
+	border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 2px rgba(70, 156, 167, 0.6);/*rgba(82, 168, 236, 0.6)*/
+    outline: 0 none;
+}
+.clear{clear:both;}
+
+.superior{
+	background: #F99;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 30px;
+}
+.cuerpo{	/* Este es el delimitador para que la página no sea excesivamente grande */
+	max-width: 1020px;
+	margin:auto;
+	box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.4);
+	padding:15px;
+}
+
+.paddingVertical2{padding:2% 0%;}
+.font15{font-size:15px;}
+/*** Header ***/
+.cabecera{
+	/*height: 131px;*/
+}
+
+.headerLeft{
+	width: 75%; 
+	float:left;
+}
+.headerRight{width: 25%; float:right;}
+.headerLineSecond,.headerLineThird{text-align:right; margin-top:5%;}
+.headerLineThird{margin-bottom:5%;}
+.headerLineFirst{float:right; width:90%;}
+.turneroHeader, .phonesHeader{float:left; width:50%;}
+.headerText{text-transform:uppercase;color: #999999;}
+.headerSearchSubmit{
+	background:#439BA5 url("../img/header/header-lupa.png") center no-repeat !important;
+	width:27px;
+	border: none;
+	border-radius:4px;
+	height:27px;
+	margin-left: 2%;
+	cursor:pointer;
+	color: transparent !important;
+}
+.headerSearchSubmit:hover{background:#5BB4BD url("../img/header/header-lupa.png") center no-repeat !important;}
+.turneroHeader  img, .phonesHeader img{float:left; margin-right:5px;}
+.headerLineSecond form input[type='text']{width:80%;margin-top:0%;margin-bottom:0%;}
+
+/*** Body ***/
+.agenda{
+	background: #99F;
+	float: right;	/* flotamos el elemento a la derecha */
+	width: 35%;
+	height: 600px;
+}
+.contenido{
+	/*width: 65%;
+	margin-right: 35%;*/
+	/*height: 900px;*/
+}
+
+#contenedor .bloque{
+	display: inline-block;	/* Es esencial para que se muestren los bloques en línea */
+	height:250px;
+	width: 250px;
+	border:1px solid #333;
+	background: #999;
+	margin:20px;
+}
+/*Footer*/
+.footer{
+	background-color:#DADDE2;
+	color: #7B7B7B;
+}
+.footer div.container{	/* Este es el delimitador para que la página no sea excesivamente grande */
+	/*No le pongo como el contenedor principal 1020px porque este no tiene el padding:15px*/
+	max-width: 1050px;
+	margin:auto;
+}
+.copyright{
+	display: inline-block;
+	background-image:url('../img/footer_background.png');
+	background-repeat:repeat-x;
+	width:100%;
+	height:30px;
+	color:#FFF;
+}
+
+.footer-first,.footer-second,.footer-third{	
+	display: inline-block;	/* Es esencial para que se muestren los bloques en línea */
+	padding:15px;
+}
+.footer-first{width: 29%;}
+.footer-second{width: 21%; position:absolute;padding-left: 30px;}
+.footer-third{width: 30%; float:right;}
+
+.footer-first{background-color:#E3E7EA;}
+.footerSuscription{
+	border-top:1px solid #CFD5D9;
+	border-bottom:1px solid #CFD5D9;
+	padding:4% 0%;
+}
+.footerSuscription .footerSuscriptionTitle{text-transform:uppercase; font-size:16px;text-shadow: 1px 1px 0px rgba(255, 255, 255, 1);letter-spacing:0.7px;}
+.footerNewsletterSubmit{margin-left:2%;}
+.footerCV{padding:4% 0%;}
+.footerCV img, .footer-second img{float:left; margin-right:2%;}
+.footer-second span{line-height:1.5;}
+.footerAddress{padding:7% 0;}
+.footerPhones{padding:7% 0;}
+.footerEmail{padding:7% 0;}
+.footerSocial{text-align:right; margin-top:5%;margin-bottom:5%;}
+
+.footerPhones{
+	border-top:1px solid #CFD5D9;
+	border-bottom:1px solid #CFD5D9;
+}
+
+#creditos{float:right; line-height:2;}
