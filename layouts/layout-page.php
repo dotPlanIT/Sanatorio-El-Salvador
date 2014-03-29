@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+<?PHP 
+	include("/../classes/mysqlclass.php");
+	$db = new MySQL();
+	/*$consulta = $db->consulta("SELECT * FROM institutionals where id=9");
+	if($db->num_rows($consulta)>0){
+	  while($quienes_somos = $db->fetch_array($consulta)){ 
+	   echo "ID: ".$quienes_somos['id']."<br />"; 
+	 }*/
+}
+?>
 <html lang="esp">
   <head>
     <meta charset="utf-8">

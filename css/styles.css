@@ -106,7 +106,7 @@ input[type='text']:focus{
 .agenda{
 	background: #99F;
 	float: right;	/* flotamos el elemento a la derecha */
-	width: 35%;
+	width: 25%;
 	height: 600px;
 }
 .contenido{

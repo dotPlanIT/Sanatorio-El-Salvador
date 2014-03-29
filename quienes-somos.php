@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?PHP 
+	include("/classes/mysqlclass.php");
+	$db = new MySQL();
+	$consulta = $db->consulta("SELECT * FROM institutionals where id=9");
+	if($db->num_rows($consulta)>0){
+	  $contenido = $db->fetch_array($consulta);
+	 }
+?>
 <html lang="esp">
   <head>
     <meta charset="utf-8">
@@ -6,7 +14,7 @@
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title><?PHP echo $contenido['title'];?></title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +36,7 @@
 			<?PHP include("/layouts/menu.php"); ?>
 		</div>
 		<div class="agenda">[Columna derecha]</div>
-		<div class="contenido">[Contenido]
+		<div class="contenido">
 			<div id="contenedor">
 				<div class="bloque">[Texto/Imágenes]</div>
 				<div class="bloque">[Texto/Imágenes]</div>
