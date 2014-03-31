@@ -14,3 +14,21 @@ var marker = new google.maps.Marker({
   icon: img,   
   title:"Cooperativa Cocaproseco"
 });
+
+function agrandar(divDonde){
+	var donde = $(divDonde);
+	var sizeFuenteActual = donde.css('font-size');
+    var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 10);
+    var sizeFuenteNuevo = sizeFuenteActualNum+1;
+    donde.css('font-size', sizeFuenteNuevo);
+    return false;
+}
+
+function achicar(divDonde){
+	var donde = $(divDonde);
+    var sizeFuenteActual = donde.css('font-size');
+    var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 10);
+    var sizeFuenteNuevo = sizeFuenteActualNum-1;
+    donde.css('font-size', sizeFuenteNuevo);
+    return false;
+}

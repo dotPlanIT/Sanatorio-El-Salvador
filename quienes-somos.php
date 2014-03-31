@@ -12,9 +12,11 @@
     <meta charset="utf-8">
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script src="js/dotplan.js" type="text/javascript"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?PHP echo $contenido['title'];?></title>
+    <title>Sanatorio del Salvador | <?PHP echo $contenido['title'];?></title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,14 +39,30 @@
 		</div>
 		<div class="agenda">[Columna derecha]</div>
 		<div class="contenido">
+			<div class="breadcrumb">
+				<a href="/quienes-somos.php"><i class="icon-home"></i></a> > 
+				<a href="/quienes-somos.php">Quienes Somos</a>
+			</div>
 			<div id="contenedor">
-				<div class="bloque">[Texto/Imágenes]</div>
-				<div class="bloque">[Texto/Imágenes]</div>
-				<div class="bloque">[Texto/Imágenes]</div>
-				<div class="bloque">[Texto/Imágenes]</div>
-				<div class="bloque">[Texto/Imágenes]</div>
+				<div class="pageTitle">Quienes <span>Somos</span></div>
+				<div class="actionsBody">
+					<button type="button" onclick="agrandar('.pageBody')">A+</button>
+					<button type="button" onclick="achicar('.pageBody')">A-</button>
+				</div>
+				<div class="pageBody">
+					<?PHP echo $contenido['body'];?>
+				</div>
 			</div>
 		</div>
+		<!-- AddThis Button BEGIN -->
+		<div class="addthis_toolbox addthis_default_style">
+			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+			<a class="addthis_button_tweet"></a>
+			<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+			<a class="addthis_counter addthis_pill_style"></a>
+		</div>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-533976252b0cdbc3"></script>
+		<!-- AddThis Button END -->
 	</div>
 	<footer class="footer">
 		<div class="container">

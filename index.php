@@ -5,6 +5,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="js/dotplan.js" type="text/javascript"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,8 +72,6 @@
 			<?PHP include("/layouts/copyright.php"); ?>
 		</div><!-- /.copyright -->
 	</footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
