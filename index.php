@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?PHP 
+	include("/classes/mysqlclass.php");
+	$db = new MySQL();
+	$consulta = $db->consulta("SELECT * FROM institutionals where id=9");
+	/*if($db->num_rows($consulta)>0){
+	  $contenido = $db->fetch_array($consulta);
+	 }*/
+?>
 <html lang="esp">
   <head>
     <meta charset="utf-8">
@@ -10,7 +18,7 @@
 	<script src="js/dotplan.js" type="text/javascript"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Sanatorio del Salvador | Home</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +46,7 @@
 		<div class="container">
 			<?PHP include("/layouts/menu.php"); ?>
 		</div>
-		<div class="contenido">
+		<div class="contenidoHome">
 			<div id="contenedor">
 				<div class="slider-wrapper theme-default">
 					<div id="slider" class="nivoSlider">
@@ -51,11 +59,36 @@
 						<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
 					</div>
 				</div>
-				<div class="bloque">[Texto/Imágenes]</div>
-				<div class="bloque">[Texto/Imágenes]</div>
-				<div class="bloque">[Texto/Imágenes]</div>
-				<div class="bloque">[Texto/Imágenes]</div>
-				<div class="bloque">[Texto/Imágenes]</div>
+				<hr>
+				<div class="homeCallToActions">
+					<a href="">
+						<div class="homeCallToAction">
+							<img src="img/home/home-turnero.png" /><br />
+							<span>Reserv&Aacute; tu </span><br/><span class="CTAText">turno online</span>
+						</div>
+					</a>
+					<a href="">
+						<div class="homeCallToAction">
+							<img src="img/home/home-medicos.png" /><br />
+							<span class="headerText">Nuestros </span><br/><span class="CTAText">M&Eacute;dicos</span>
+						</div>
+					</a>
+					<a href="">
+						<div class="homeCallToAction">
+							<img src="img/home/home-suscriptions.png" /><br />
+							<span class="headerText">Suscribite a </span><br/><span class="CTAText">Salvador Noticias</span>
+						</div>
+					</a>
+					<a  href="">
+						<div class="homeCallToAction last">
+							<img src="img/home/home-preguntas-frecuentes.png" /><br />
+							<span class="headerText">Preguntas </span><br/><span class="CTAText">Frecuentes</span>
+						</div>
+					</a>				
+				</div>
+				<hr>
+				<?PHP include("/blocks/ultimas-noticias-home.php"); ?>
+				<div class="clear"></div>
 			</div>
 		</div>
 	</div>

@@ -4,20 +4,20 @@
 		<span class="paddingVertical2">
 			<b>Ingreso principal:</b> General Deheza 542<br/>
 			<b>Ingreso ambulatorio:</b> General Güemes 565<br/> 
-			B° General Paz (X5004BCL) Córdoba, Argentina.
+			B° <?PHP echo $configuration['neighborhood'];?> (<?PHP echo $configuration['zipcode'];?>) <?PHP echo $configuration['province'];?>.
 		</span>
 	</div>
 	<div class="footerPhones">
 		<img src="img/footer/footer-phone.png" />
 		<span class="paddingVertical2">
-			<b>Tel&eacute;fonos:</b> (0351) 452-9610 <br/>
-			<b>Turnos:</b> (0351) 452-9600<br/> 
+			<b><?PHP echo $configuration['phone_tag_one'];?>:</b> <?PHP echo $configuration['phone_one'];?> <br/>
+			<b><?PHP echo $configuration['phone_tag_two'];?>:</b> <?PHP echo $configuration['phone_two'];?><br/> 
 		</span>
 	</div>
 	<div class="footerEmail">
 		<img src="img/footer/footer-email.png" />
 		<span class="paddingVertical2">
-			info@sanatoriodelsalvador.com
+			<?PHP echo $configuration['email_one'];?>
 		</span>
 	</div>
 </div>

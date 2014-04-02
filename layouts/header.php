@@ -1,8 +1,14 @@
+<?PHP ;
+	$configurations = $db->consulta("SELECT * FROM configurations");
+	if($db->num_rows($configurations)>0){
+	  $configuration = $db->fetch_array($configurations);
+	 }
+?>
 <div class="headerLeft"><a href="http://sanatoriodelsalvador.com"><img src="img/logo.png"/></a></div>
 <div class="headerRight">
 	<div class="headerLineFirst">
 		<div class="turneroHeader"><a href=""><img src="img/header/header-turnero.png" /><span class="headerText">TURNOS<br/>ONLINE</span></a></div>
-		<div class="phonesHeader"><img src="img/header/header-phone.jpg" /><span class="headerText">0351 4529600</span><br/><span class="headerText">0351 4529601</span></div>
+		<div class="phonesHeader"><img src="img/header/header-phone.jpg" /><span class="headerText"><?PHP echo $configuration['phone_one'];?></span><br/><span class="headerText"><?PHP echo $configuration['phone_two'];?></span></div>
 	</div>
 	<div class="clear"></div>
 	<div class="headerLineSecond">

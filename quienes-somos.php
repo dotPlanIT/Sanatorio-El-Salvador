@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <?PHP 
 	include("/classes/mysqlclass.php");
 	$db = new MySQL();
@@ -9,7 +9,7 @@
 ?>
 <html lang="esp">
   <head>
-    <meta charset="utf-8">
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
@@ -29,7 +29,7 @@
 	<link href="css/styles-768.css" rel="stylesheet">
   </head>
   <body>
-	<!--<div class="superior">[Men�]</div>-->
+	<!--<div class="superior">[Menú]</div>-->
 	<div class="cuerpo">
 		<div class="cabecera">
 			<?PHP include("/layouts/header.php"); ?>
@@ -63,6 +63,9 @@
 		</div>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-533976252b0cdbc3"></script>
 		<!-- AddThis Button END -->
+		<hr>
+		<?PHP include("/blocks/ultimas-noticias-bottom.php"); ?>
+		<div class="clear"></div>
 	</div>
 	<footer class="footer">
 		<div class="container">
