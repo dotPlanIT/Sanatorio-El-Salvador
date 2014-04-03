@@ -1,4 +1,6 @@
-<?PHP ;
+<?PHP 
+	require_once("/classes/mysqlclass.php");
+	$db = new MySQL();
 	$configurations = $db->consulta("SELECT * FROM configurations");
 	if($db->num_rows($configurations)>0){
 	  $configuration = $db->fetch_array($configurations);

@@ -15,11 +15,11 @@ if($db->num_rows($consulta)>0){
 		<div class="box-notice <?PHP echo $lastClass;?>">
 		 <img src="http://localhost/cms/app/webroot/files/notices/<?PHP echo $notice['image_dir'];?>/home_<?PHP echo $notice['image'];?>" />
 		 <span class="typyNotice"><?PHP echo $notice['type'];?></span>
-		 <div class="contentLastNewss">
+		 <div class="contentLastNews">
 			<span class="noticeTitle"><?PHP echo $notice['title'];?></span>
 			<span class="noticeDrop"><?PHP echo $notice['drop'];?></span>
 		 </div>
-		 <a class="reddMoreLastNewss" href="">+</a>
+		 <a class="reddMoreLastNews" href="">+</a>
 		</div>
 		
 	<?PHP }

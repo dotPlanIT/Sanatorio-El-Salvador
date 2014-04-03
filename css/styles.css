@@ -255,7 +255,7 @@ hr{color:#F0F0F0;}
 
 
 
-/** Last Newss **/
+/** Last News **/
 .lastNews div.box-notice{
 	float:left;
 	width:22.6%;
@@ -275,10 +275,10 @@ hr{color:#F0F0F0;}
 	font-size:11px;
 }
 
-.contentLastNewss{background-color:#F0F0F0;padding:5%;min-height: 190px; border-bottom:4px solid #D5D7D8;}
-.contentLastNewss span.noticeTitle{color:#3D8690; font-weight:bold;}
+.contentLastNews{background-color:#F0F0F0;padding:5%;min-height: 190px; border-bottom:4px solid #D5D7D8;}
+.contentLastNews span.noticeTitle{color:#3D8690; font-weight:bold;}
 .noticeDrop{color:#666666;}
-.reddMoreLastNewss{
+.reddMoreLastNews{
 	border-top-right-radius:5px;
 	font-weight:bold;
 	border-top-left-radius:5px;
@@ -295,7 +295,7 @@ hr{color:#F0F0F0;}
     top: -25px;
     width: 25px;
 }
-.reddMoreLastNewss:hover{color: #FFFFFF;opacity:0.8; }
+.reddMoreLastNews:hover{color: #FFFFFF;opacity:0.8; }
 
 
 /*** Home ***/
@@ -352,3 +352,20 @@ hr{color:#F0F0F0;}
 .contactForm form{margin:0 auto; width:70%;}
 .contactField input.boton{float:right; color: #3D8690; background:#F0F0F0;}
 .contactField input.boton:hover{color: #F0F0F0; background:#71BECE;}
+
+
+/*** Novedades ***/
+
+.pagersNovedades{float:right; font-family:'Arial'; font-size:12px; margin-top:1%;}
+.pagersNovedades a{color:#AA3131;}
+.page-notice div.newsContent span.typyNotice{background-color:#469CA7;}
+.page-notice div.newsContent span.typyNotice:hover{background-color:#AA3131;}
+.page-notice{
+	float:left;
+	margin-top:2%;
+}
+.page-notice img{border-top-right-radius:2em; margin-bottom:-3px; float:left;}
+.newsContent{float:right;width:69%;}
+.contentNews{background-color:#F0F0F0;padding:2%;border-bottom:4px solid #D5D7D8; height:117px;}
+.contentNews:hover{text-decoration:underline;}
+.contentNews span.noticeTitle{color:#3D8690; font-weight:bold;}

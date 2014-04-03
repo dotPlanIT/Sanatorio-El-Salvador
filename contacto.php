@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <?php 
-include("/classes/mysqlclass.php");
+require_once("/classes/mysqlclass.php");
 $db = new MySQL();
 
 if(isset($_POST['contact_email'])){
