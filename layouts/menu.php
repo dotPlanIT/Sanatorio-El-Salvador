@@ -12,7 +12,7 @@
 			<li>
 				<a href="#">Especialidades</a>
 				<ul>
-					<li><a href="#">Trousers</a></li>
+					<li><a href="/novedad/9/urls-amigables-con-htaccess-y-php">Probar htaccess</a></li>
 					<li><a href="#">Slacks</a></li>
 					<li><a href="#">Jeans</a></li>
 				</ul>

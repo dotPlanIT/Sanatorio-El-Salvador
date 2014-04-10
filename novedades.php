@@ -64,7 +64,7 @@
     <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script>
-		$(".contentNews").on("hover", function(e) {
+		/*$(".contentNews").on("hover", function(e) {
 			if (e.type == "mouseenter") {
 				console.log("one"); 
 				$("p").css("color","red");				

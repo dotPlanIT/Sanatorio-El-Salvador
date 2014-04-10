@@ -15,6 +15,7 @@ body {
 	background-position:center bottom;
 	font-family: 'Droid Sans', sans-serif;
 	font-size:13px;
+	background-color: #F0F0F0;
 }
 a{color:#439ca6}
 a:hover{color:#388189}
@@ -87,12 +88,12 @@ textarea{
 	margin:auto;
 	box-shadow:0 0 20px 0 rgba(0, 0, 0, 0.2);
 	padding:15px;
+	background-color: #FFF;
 }
 
 .paddingVertical2{padding:2% 0%;}
 .font15{font-size:15px;}
 hr{color:#F0F0F0;}
-
 /*** Header ***/
 .cabecera{
 	/*height: 131px;*/
@@ -169,10 +170,11 @@ hr{color:#F0F0F0;}
 
 .pageTitle, .boxTitle{
  color:#439CA6;
- padding:1% 0;
+ padding: 3% 0 1%;
  text-transform:uppercase;
  font-size:23px;
  border-bottom: 1px solid #439CA6;
+ margin-bottom:1%;
 }
 .boxTitle{border:none;}
 .pageTitle span, .boxTitle span{font-weight:bold;}
@@ -181,7 +183,7 @@ hr{color:#F0F0F0;}
 	font-family:'Arial', sans-serif; 
 
 }
-.pageBody h3 {color:#AD1A20; font-size:20px;font-family:'Droid Sans', sans-serif;}
+.pageBody h3 {color:#AD1A20; font-size:20px;font-family:'Droid Sans', sans-serif;margin-bottom: 5px;}
 .pageBody ul{padding:0 15px;}
 .pageBody ul li{
 	padding-bottom:1%;
@@ -192,14 +194,12 @@ hr{color:#F0F0F0;}
 
 .bodyValores{background-color:#F0F0F0; padding: 1px 15px 15px 15px;}
 .bodyValores h3{color:#469DA7;font-size:20px;font-family:'Droid Sans', sans-serif;}
-.actionsBody{float:right;}
+.actionsBody{text-align:right;width:100%;}
 .actionsBody button{  
 	background-color: #FFFFFF;
 	color:#AD1A20;
     border: medium none;
-    cursor: pointer;
-    margin: 10% 0;
-    padding: 10% 0;}
+    cursor: pointer;}
 
 .addthis_toolbox.addthis_default_style{margin-top:2%;}
 /*Footer*/
@@ -359,7 +359,7 @@ hr{color:#F0F0F0;}
 .pagersNovedades{float:right; font-family:'Arial'; font-size:12px; margin-top:1%;}
 .pagersNovedades a{color:#AA3131;}
 .page-notice div.newsContent span.typyNotice{background-color:#469CA7;}
-.page-notice div.newsContent span.typyNotice:hover{background-color:#AA3131;}
+.page-notice div.newsContent span.typyNotice:hover{/*background-color:#AA3131;*/}
 .page-notice{
 	float:left;
 	margin-top:2%;
@@ -367,5 +367,9 @@ hr{color:#F0F0F0;}
 .page-notice img{border-top-right-radius:2em; margin-bottom:-3px; float:left;}
 .newsContent{float:right;width:69%;}
 .contentNews{background-color:#F0F0F0;padding:2%;border-bottom:4px solid #D5D7D8; height:117px;}
-.contentNews:hover{text-decoration:underline;}
+.contentNews:hover{/*text-decoration:underline;*/}
 .contentNews span.noticeTitle{color:#3D8690; font-weight:bold;}
+
+.noticeHeaderRight,.noticeHeaderLeft{width:50%;}
+.noticeHeaderRight{float:right;}
+.noticeHeaderLeft{float:left;}

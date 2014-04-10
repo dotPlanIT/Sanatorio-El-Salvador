@@ -30,9 +30,9 @@
 <div class="pagersNovedades">
 	<?php 
 		//echo "<a onclick=\"Pagina('1')\">Primero</a> ";
-		if($PagAct>1) echo "<a onclick=\"Pagina('$PagAnt')\"><<</a> ";
+		if($PagAct>1) echo "<a onclick=\"Pagina('$PagAnt')\"><< </a> ";
 		echo "P&aacute;gina ".$PagAct." de ".$PagUlt;
-		if($PagAct<$PagUlt)  echo " <a onclick=\"Pagina('$PagSig')\">>></a> ";
+		if($PagAct<$PagUlt)  echo " <a onclick=\"Pagina('$PagSig')\"> >></a> ";
 		//echo "<a onclick=\"Pagina('$PagUlt')\">Ultimo</a>";
 	?>
 </div>
@@ -61,9 +61,9 @@
 <div class="pagersNovedades">
 	<?php 
 		//echo "<a onclick=\"Pagina('1')\">Primero</a> ";
-		if($PagAct>1) echo "<a onclick=\"Pagina('$PagAnt')\"><<</a> ";
-		echo "P&aacute;gina ".$PagAct." de ".$PagUlt;
-		if($PagAct<$PagUlt)  echo " <a onclick=\"Pagina('$PagSig')\">>></a> ";
+		if($PagAct>1) echo "<a onclick=\"Pagina('$PagAnt')\"><< </a> ";
+		echo "p&aacute;gina ".$PagAct." de ".$PagUlt;
+		if($PagAct<$PagUlt)  echo " <a onclick=\"Pagina('$PagSig')\"> >></a> ";
 		//echo "<a onclick=\"Pagina('$PagUlt')\">Ultimo</a>";
 	?>
 </div>
