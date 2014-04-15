@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <?PHP 
 	include("/../classes/mysqlclass.php");
 	$db = new MySQL();

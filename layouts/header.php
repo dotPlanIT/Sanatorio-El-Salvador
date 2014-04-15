@@ -5,6 +5,11 @@
 	if($db->num_rows($configurations)>0){
 	  $configuration = $db->fetch_array($configurations);
 	 }
+	if (isset($_POST['buscar'])) { // Viene por el buscador
+		$_SESSION['BUSCAR'] = $_POST['buscar'];
+	}else{
+		$_SESSION['BUSCAR'] ="";
+	}
 ?>
 <div class="headerLeft"><a href="http://sanatoriodelsalvador.com"><img src="img/logo.png"/></a></div>
 <div class="headerRight">
@@ -15,7 +20,8 @@
 	<div class="clear"></div>
 	<div class="headerLineSecond">
 		<form name="global-search" action="search.php" method="post">
-			<input type="text" /><input type='submit' value="." class="headerSearchSubmit" />
+			<input type="text" name="buscar" id="buscar" value="<?php echo $_SESSION['BUSCAR']; ?>" />
+			<input id="enviar"  name="enviar" type='submit' value="." class="headerSearchSubmit" />
 		</form>
 	</div>
 	<div class="headerLineThird">

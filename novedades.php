@@ -33,7 +33,7 @@
 		<div class="agenda">[Columna derecha]</div>
 		<div class="contenido">
 			<div class="breadcrumb">
-				<a href="/index.php"><i class="icon-home"></i></a> > 
+				<a href="/index.php"><i class="icon-home"></i></a> :: 
 				<a href="/novedades.php">Novedades</a>
 			</div>
 			<div id="contenedor">

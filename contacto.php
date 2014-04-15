@@ -65,7 +65,7 @@ if(isset($_POST['contact_email'])){
 		<div class="agenda">[Columna derecha]</div>
 		<div class="contenido">
 			<div class="breadcrumb">
-				<a href="/index.php"><i class="icon-home"></i></a> > 
+				<a href="/index.php"><i class="icon-home"></i></a> :: 
 				<a href="/contacto.php">Contacto</a>
 			</div>
 			<div id="contenedor">

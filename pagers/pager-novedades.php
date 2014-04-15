@@ -48,7 +48,7 @@
 			 <span class="typyNotice"><?PHP echo $MostrarFila['type'];?></span>
 			 <div class="contentNews">
 				<span class="noticeTitle"><?PHP echo $MostrarFila['title'];?></span>
-				<span class="noticeDrop"><?PHP echo $MostrarFila['drop'];?></span>
+				<span class="noticeDrop"><?PHP echo $MostrarFila['lower'];?></span>
 			 </div>
 			 <a class="reddMoreLastNews" href="">+</a>
 		</div>

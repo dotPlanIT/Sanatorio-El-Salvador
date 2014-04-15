@@ -26,9 +26,9 @@
 		<div class="contenido">
 			<?php if($db->num_rows($consulta)>0){?>
 				<div class="breadcrumb">
-					<a href="/index.php"><i class="icon-home"></i></a> > 
-					<a href="/novedades.php">Novedades</a> >
-					<a href="/novedades.php"><?PHP echo $contenido['tipo'];?></a> >				
+					<a href="/index.php"><i class="icon-home"></i></a> :: 
+					<a href="/novedades.php">Novedades</a> ::
+					<a href="/novedades.php"><?PHP echo $contenido['tipo'];?></a> ::				
 					<a href="/novedades.php"><?PHP echo $contenido['title'];?></a>
 				</div>
 				<div id="contenedor">
@@ -43,7 +43,7 @@
 							<span class="noticeDate"><?PHP echo $contenido['fecha'];?></span>
 						</div>
 						<div class="noticeTitle"><?PHP echo $contenido['title'];?></div>
-						<div class="noticeDrop"><?PHP echo $contenido['drop'];?></div>
+						<div class="noticeDrop"><?PHP echo $contenido['lower'];?></div>
 					</div>
 					<div class="noticeHeaderRight">
 						<div class="noticeImage"><img src="http://localhost/cms/app/webroot/files/notices/<?PHP echo $contenido['image_dir'];?>/notice_<?PHP echo $contenido['image'];?>" /></div>

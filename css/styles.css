@@ -164,7 +164,7 @@ hr{color:#F0F0F0;}
 .breadcrumb a{
 	font-family: Arial;
 	font-size:11px;
-	text-decoration:underline;
+	/*text-decoration:underline;*/
 	color:#666666;
 }
 

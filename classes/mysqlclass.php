@@ -37,6 +37,10 @@
   public function getTotalConsultas(){
    return $this->total_consultas; 
   }
+  
+  public function mysql_fetch_row($consulta){
+    return mysql_fetch_row(mysql_query($consulta,$this->conexion));
+  }
 
 }
 ?>

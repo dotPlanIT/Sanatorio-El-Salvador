@@ -24,7 +24,7 @@
 		<div class="agenda">[Columna derecha]</div>
 		<div class="contenido">
 			<div class="breadcrumb">
-				<a href="/index.php"><i class="icon-home"></i></a> > 
+				<a href="/index.php"><i class="icon-home"></i></a> :: 
 				<a href="/quienes-somos.php">Quienes Somos</a>
 			</div>
 			<div id="contenedor">

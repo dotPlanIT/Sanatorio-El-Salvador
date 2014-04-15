@@ -17,7 +17,7 @@ if($db->num_rows($consulta)>0){
 		 <span class="typyNotice"><?PHP echo $notice['type'];?></span>
 		 <div class="contentLastNews">
 			<span class="noticeTitle"><?PHP echo $notice['title'];?></span>
-			<span class="noticeDrop"><?PHP echo $notice['drop'];?></span>
+			<span class="noticeDrop"><?PHP echo $notice['lower'];?></span>
 		 </div>
 		 <a class="reddMoreLastNews" href="">+</a>
 		</div>
