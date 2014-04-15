@@ -21,7 +21,7 @@
 		<div class="container">
 			<?PHP include("/layouts/menu.php"); ?>
 		</div>
-		<div class="agenda">[Columna derecha]</div>
+		<div class="agenda"><?PHP include("/blocks/cta-lateral.php"); ?></div>
 		<div class="contenido">
 			<div class="breadcrumb">
 				<a href="/index.php"><i class="icon-home"></i></a> :: 

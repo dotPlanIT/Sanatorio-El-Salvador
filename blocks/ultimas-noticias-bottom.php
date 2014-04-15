@@ -9,12 +9,16 @@ if($db->num_rows($consulta)>0){
 	$i=0;
 	while($notice = mysql_fetch_array($consulta)){
 		$i++;
+		$date = date_create($notice['date']);
 		if($i==4){
 		 $lastClass = 'lastNotice';
 		}?>
 		<div class="box-notice <?PHP echo $lastClass;?>">
 		 <img src="http://localhost/cms/app/webroot/files/notices/<?PHP echo $notice['image_dir'];?>/home_<?PHP echo $notice['image'];?>" />
-		 <span class="typyNotice"><?PHP echo $notice['type'];?></span>
+		 <div class="contetTypeNotice">
+			 <span class="typeNotice"><?PHP echo $notice['type'];?></span>
+			 <span class="dateNotice"><?PHP echo $date->format('d/m/Y');?></span>
+		 </div>
 		 <div class="contentLastNews">
 			<span class="noticeTitle"><?PHP echo $notice['title'];?></span>
 			<span class="noticeDrop"><?PHP echo $notice['lower'];?></span>
