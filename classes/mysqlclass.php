@@ -9,6 +9,7 @@
 	$user = 'root';
 	$password = '';
 	$nombreBD = 'dotplan_cms';
+	
     if(!isset($this->conexion)){
       $this->conexion = (mysql_connect($server,$user,$password))or die(mysql_error());
       mysql_select_db($nombreBD,$this->conexion) or die(mysql_error());

@@ -89,11 +89,12 @@ textarea{
 	box-shadow:0 0 20px 0 rgba(0, 0, 0, 0.2);
 	padding:15px;
 	background-color: #FFF;
+	overflow: hidden;
 }
 
 .paddingVertical2{padding:2% 0%;}
 .font15{font-size:15px;}
-hr{color:#F0F0F0;}
+hr{border: 1px solid #F0F0F0;}
 /*** Header ***/
 .cabecera{
 	/*height: 131px;*/
@@ -124,17 +125,149 @@ hr{color:#F0F0F0;}
 .turneroHeader  img, .phonesHeader img{float:left; margin-right:5px;}
 .headerLineSecond form input[type='text']{width:80%;margin-top:0%;margin-bottom:0%;}
 
-/*** Body ***/
+/*Agenda*/
 .agenda{
 	float: right;	/* flotamos el elemento a la derecha */
-	width: 25%;
+	width:25%;
 }
+.TitleEvents{
+	background-color:#3D8690;
+	text-align:center;
+	padding:2%;
+	color:#FFF;
+	text-transform:uppercase;
+	font-family: 'PT Sans Narrow';
+	font-size:20px;
+}
+.events{
+	-moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #3D8690;
+    border-image: none;
+    border-style: solid;
+    border-width: 2px 2px 20px;
+}
+.event{
+	padding:2%;
+	border-bottom:2px solid;
+}
+.dateEvent{float:left; text-align:center; width:17%;;color:#B03333; font-weight:bold;}
+.dayEvent{font-size:24px;}
+.monthEvent{font-size:16px;}
+.titleEvent{color:#666;font-weight: bold;padding: 2% 0;}
+.receiversEvent{text-align:center;color:#B03333;}
+.dropEvent{color:#666; float:right;width:83%;font-size:12px;}
 .contenido{
-	width: 74%;
+	width: 73%;
 	/*margin-right: 35%;*/
 	/*height: 900px;*/
 }
 
+.bookmark sup {
+	position: absolute; padding-top: 4px;
+	font-size: 10px; line-height: 10px; letter-spacing: normal;
+}
+
+/* year + month */
+.bookmark abbr {
+	display: block; font: 10px Verdana, sans-serif; letter-spacing: normal; color: white;
+	-moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px;
+}
+
+/* month */
+.bookmark>:first-child {
+	width: 91%; 
+	margin: -1px 0 0 -1px; 
+	padding: 0 5%; 
+	border: none;
+	line-height: 25px; 
+	font-size:16px;
+	text-align: left; 
+	text-transform: uppercase;
+	background: #a33537;
+	border-radius: 5px 5px 0 0;
+	-Moz-border-radius: 5px 5px 0 0;
+	-Webkit-border-radius: 5px 5px 0 0;
+	background: # D10000;
+	background:-moz-linear-gradient (top, # D10000 0%, # 7a0909 100%);
+	background:-webkit-lineal de gradiente (arriba, # D10000 0%, # 7a0909 100%);	
+}
+
+/* year */
+.bookmark sup+abbr {
+	position: absolute; 
+	top: 0; 
+	left: 0;
+	width: 94%; 
+	padding: 0 3%;
+	line-height: 25px; 
+	color: #eaa; 
+	font-size:16px;
+	text-align: right;
+}
+
+/* time */
+.bookmark sub {
+	display: none; border-top: 1px solid #bbd; margin: 0 3px;
+	font: 16px/27px 'PT Sans Narrow', Verdana, sans-serif; letter-spacing: normal; text-align: center; color: #aac;
+}
+
+
+.bookmark sub {
+	display: block;
+}
+
+.bookmark {
+	display: block; 
+	position: relative; 
+	width: 15%; 
+	height:15%;
+	margin-bottom: 18px;
+	font: 40px/55px 'PT Sans Narrow', Arial, sans-serif;
+	text-align: center;
+	letter-spacing: 2px; 
+	color: #666;
+	margin-bottom: 0; 
+	border: 1px solid #CCC;
+	box-shadow:0 0 15px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	-Moz-border-radius: 5px;
+	-Webkit-border-radius: 5px;
+	/*box-shadow: 0px 0px 15px rgba (0,0,0,0.1);
+	-Moz-box-shadow: 0px 0px 15px rgba (0,0,0,0.1);
+	-Webkit-box-shadow: 0px 0px 15px rgba (0,0,0,0.1);*/
+	float:left;
+	margin-right:2%;
+	margin-top:2%;
+}
+.eventHeaderRight{float:right;margin-top:2%; margin-left:2%;}
+.eventHeaderLeft{float:left;}
+.eventData{float:left;margin-top:2%;}
+.eventTitle{float:left;color:#AE1B21; font-size:20px; padding:4% 0;}
+.eventImage{float:left;}
+.specialityHeader{overflow:hidden;}
+.contentSpeciality{padding:2%;}
+.contentSpeciality p {color:#666666; font-family: Arial; font-size:13px;line-height:1.5}
+
+/* Prensa */
+.prensa{float:right; width:25%;}
+.TitleEditos{
+	padding:2% 2% 2% 10%;
+	color:#FFF;
+	text-transform:uppercase;
+	font-family: 'PT Sans Narrow';
+	font-size:20px;
+	border-bottom:2px solid #C26A6A;}
+.editors{background: #B03333;margin-top:4%;}
+div.prensa div.editors a img,.agenda div.editors a img{float: right;position: relative;top: -20px;margin-right:7%;}
+
+.editorText{font-family: 'PT Sans Narrow';
+	font-size:18px; color:#FFF;
+	padding:4% 2% 5% 10%;}
+.contenidoHome div#contenedor div.lastNews div.boxTitle	{padding:0px !important;}
+/*** Body ***/
 #contenedor .bloque{
 	display: inline-block;	/* Es esencial para que se muestren los bloques en línea */
 	height:250px;
@@ -165,6 +298,13 @@ hr{color:#F0F0F0;}
 	font-size:11px;
 	/*text-decoration:underline;*/
 	color:#666666;
+}
+.boxBoxTitle{
+ color:#439CA6;
+ padding: 0% 0 1%;
+ text-transform:uppercase;
+ font-size:23px;
+ margin-bottom:1%;
 }
 
 .pageTitle, .boxTitle{
@@ -354,33 +494,32 @@ hr{color:#F0F0F0;}
 .contactForm form{margin:0 auto; width:70%;}
 .contactField input.boton{float:right; color: #3D8690; background:#F0F0F0;}
 .contactField input.boton:hover{color: #F0F0F0; background:#71BECE;}
-
+.formContact{float:left;width:100%;margin-bottom:3%;}
 
 /*** Novedades ***/
 
-.pagersNovedades{float:right; font-family:'Arial'; font-size:12px; margin-top:1%;}
-.pagersNovedades a{color:#AA3131;}
-.page-notice div.newsContent span.typyNotice{background-color:#469CA7;}
-.page-notice div.newsContent span.typyNotice:hover{/*background-color:#AA3131;*/}
+.pagersNovedades, .pagersBoletin{float:right; font-family:'Arial'; font-size:12px; margin-top:1%; margin:1% 0; cursor:pointer;}
+.pagersNovedades a, .pagersBoletin a,{color:#AA3131;}
+.page-notice div.newsContent div.contetTypeNotice,div.noticeHeaderLeft div.contetTypeNotice{background-color:#469CA7;color:#FFF;}
 .page-notice{
 	float:left;
-	margin-top:2%;
 }
 .page-notice img{border-top-right-radius:2em; margin-bottom:-3px; float:left;}
-.newsContent{float:right;width:69%;}
+.newsContent{float:right;width:68%;}
 .contentNews{background-color:#F0F0F0;padding:2%;border-bottom:4px solid #D5D7D8; height:117px;}
 .contentNews:hover{/*text-decoration:underline;*/}
 .contentNews span.noticeTitle{color:#3D8690; font-weight:bold;}
 
-.noticeHeaderRight,.noticeHeaderLeft{width:50%;}
-.noticeHeaderRight{float:right;}
-.noticeHeaderLeft{float:left;}
+.noticeHeaderRight{float:right;width:46%;margin-top:2%;}
+.noticeHeaderLeft{float:left;width:52%;margin-top:2%;}
+div.noticeHeaderLeft div.noticeTitle{color:#AE1B21; font-size:20px; padding:4% 0;}
+div.noticeHeaderLeft div.noticeDrop{font-weight:bold;margin-bottom:4%;}
 
-
+html body div.cuerpo div.contenido div#contenedor div.noticeHeaderRight div.noticeImage img{width:350px;height:auto;}
 /* call to actions Laterales*/
 
 .lateralCallToActions{	
-    margin: 2% 0;
+    margin: 4% 0;
     padding: 2% 4%;
 	background: #1e5799; /* Old browsers */
 	background: -moz-linear-gradient(top,  #1e5799 0%, #439ca6 0%, #388189 99%); /* FF3.6+ */
@@ -411,3 +550,66 @@ hr{color:#F0F0F0;}
 .lateralCallToAction  span{font-weight:bold;}
 .lateralCallToAction.last{margin-right:0px;}
 .CTAText{color:#3D8690;}
+
+
+/* Especialidades */
+
+.specialitisLeft{float:left;width:49%;}
+.specialitisRight{float:right;width:49%;}
+.specialityLetter{background-color:#F0F0F0;padding:1% 3%;color:#AE1B21;font-size:20px;}
+.specialityName{
+font-family:'Arial';  
+font-size:12px; 
+color:#666666;
+padding:3%;
+border-bottom:1px solid #F0F0F0;
+font-weight:bold;
+background:url('../img/speciality-row.png') 98% 50% no-repeat;}
+.specialityName:hover{color:#F0F0F0;background: #B03939 url('../img/speciality-row-hover.png') 98% 50% no-repeat;}
+
+
+/* Especialidad */
+.titleSpeciality{color:#AE1B21; font-size:20px;}
+.specialityTitle{color:#FFFFFF; font-size:20px;width:96%;background:#3D8690;padding: 0.5% 2%;}
+.specialityHeaderLeft{width:42%;float:left;background:#F0F0F0; height:136px;}
+.specialityHeaderRight{width:58%;float:right; text-align:right;}
+.specialityHeaderLeft ul.ui-tabs-nav{margin-top:2%; margin-left:10%; background:transparent; border:none;}
+.specialityHeaderLeft ul.ui-tabs-nav li.ui-state-default{list-style: url('../img/icons/row-li.png');line-height: 1.5;background:transparent; border: none; width:100%;font-size:13px;}
+.specialityHeaderLeft ul.ui-tabs-nav li.ui-state-default a{color:#666666; padding:0;}
+.specialityHeaderLeft a:hover{font-weight:bold;}
+#tabs.ui-tabs{border:none;}
+.ui-tabs-panel{padding:0 !important;}
+
+/* Mutuales */
+.healthName{    
+	border-bottom: 1px solid #F0F0F0;
+    float: left;
+    margin: 1%;
+	margin-right:1px;
+	margin-bottom:0;
+    padding: 1% 0 1% 2%;
+    width: 30%;
+	background:url("../img/body/body-list-style.png") no-repeat scroll 0% 50% #FFFFFF;
+	color:#666666;
+	font-size:12px;
+}
+.art, .obrasSociales, .prepagas{float:left; width:100%;}
+.art, .obrasSociales{padding-top:3%;}
+.prepagas{padding-top:1%;}
+/* Buscador */
+.contentSearch{margin:2% 0%; border-bottom:1px solid #F0F0F0;padding-bottom:1%;}
+.titleSearch{font-size:16px; color:#B03939;padding-bottom:1%;}
+
+
+/* Boletines */
+.sentSubTitle{color:#AE1B21; font-size:20px; float:left; padding-left:1%;}
+#boletinesAjax{padding-top:2%;}
+.boletines a{width:30.5%; float:left; margin:1%; border:3px Solid #CCCCCC;}
+.boletines{ padding-top:4%}
+.pagersBoletin{margin-right:2%;}
+.boletinContent{overflow:hidden;}
+.contentBoletin{background-color:#CCCCCC;padding: 4% 2%;}
+.contentBoletin:hover{/*text-decoration:underline;*/}
+.contentBoletin span.boletinTitle{color:#B03939; font-weight:bold; font-size:13px;}
+.contentBoletin span.dateBoletin{color:#666666; font-size:11px;}
+

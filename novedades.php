@@ -25,21 +25,25 @@
 	<!--<div class="superior">[Menú]</div>-->
 	<div class="cuerpo">
 		<div class="cabecera">
-			<?PHP include("/layouts/header.php"); ?>
+			<?PHP include("./layouts/header.php"); ?>
 		</div>
 		<div class="container">
-			<?PHP include("/layouts/menu.php"); ?>
+			<?PHP include("./layouts/menu.php"); ?>
 		</div>
-		<div class="agenda">[Columna derecha]</div>
+		<div class="agenda">
+			<?PHP include("./blocks/cta-lateral.php"); ?>
+			<?PHP require_once("./blocks/agenda.php"); ?>
+			<?PHP require_once("./blocks/editors.php"); ?>
+		</div>
 		<div class="contenido">
 			<div class="breadcrumb">
-				<a href="/index.php"><i class="icon-home"></i></a> :: 
-				<a href="/novedades.php">Novedades</a>
+				<a href="./index.php"><i class="icon-home"></i></a> :: 
+				<a href="./novedades.php">Novedades</a>
 			</div>
 			<div id="contenedor">
 				<div class="pageTitle">Novedades</div>
 				<div id="novedadesAjax">
-					<?php include('pagers/pager-novedades.php')?>
+					<?php include('./pagers/pager-novedades.php')?>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -48,14 +52,14 @@
 	<footer class="footer">
 		<div class="container">
 			<div id="contenedor">
-				<?PHP include("/layouts/footer-first.php"); ?>
-				<?PHP include("/layouts/footer-second.php"); ?>
-				<?PHP include("/layouts/footer-third.php"); ?>
+				<?PHP include("./layouts/footer-first.php"); ?>
+				<?PHP include("./layouts/footer-second.php"); ?>
+				<?PHP include("./layouts/footer-third.php"); ?>
 			</div>
 		</div><!-- /.container -->
 		<div class="clear"></div>
 		<div class="copyright">
-			<?PHP include("/layouts/copyright.php"); ?>
+			<?PHP include("./layouts/copyright.php"); ?>
 		</div><!-- /.copyright -->
 	</footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -63,16 +67,5 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script>
-		/*$(".contentNews").on("hover", function(e) {
-			if (e.type == "mouseenter") {
-				console.log("one"); 
-				$("p").css("color","red");				
-			}
-			else { // mouseleave
-				console.log("two");   
-			}
-		});
-	</script>
   </body>
 </html>

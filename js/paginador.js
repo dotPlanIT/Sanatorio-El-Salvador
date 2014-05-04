@@ -15,17 +15,24 @@ function objetoAjax(){
 	}
 	return xmlhttp;
 }
-function Pagina(nropagina){
-	//donde se mostrará los registros
-	divContenido = document.getElementById('novedadesAjax');
+function Pagina(nropagina,divAjax,page){
 	
+	//donde se mostrarï¿½ los registros
+	divContenido = document.getElementById(divAjax);
+	//borro el contenido
+	 $("#"+divAjax).empty();
+	//le pongo la imagen del gif
+	divContenido.innerHTML = '<span class="loading"></span>';
 	ajax=objetoAjax();
 	//uso del medoto GET
-	//indicamos el archivo que realizará el proceso de paginar
+	//indicamos el archivo que realizarï¿½ el proceso de paginar
 	//junto con un valor que representa el nro de pagina
-	ajax.open("GET", "pagers/pager-novedades.php?pag="+nropagina);
+	URLAjex = "pagers/"+page+".php?pag="+nropagina;
+	ajax.open("GET", URLAjex);
 	ajax.onreadystatechange=function() {
 		if (ajax.readyState==4) {
+			//borro el loading
+			$("#"+divAjax).empty();
 			//mostrar resultados en esta capa
 			divContenido.innerHTML = ajax.responseText
 		}

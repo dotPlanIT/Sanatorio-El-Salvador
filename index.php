@@ -1,12 +1,8 @@
-<!DOCTYPE html>
 <?PHP 
-	include("/classes/mysqlclass.php");
+include("./classes/mysqlclass.php");
 	$db = new MySQL();
-	$consulta = $db->consulta("SELECT * FROM institutionals where id=9");
-	/*if($db->num_rows($consulta)>0){
-	  $contenido = $db->fetch_array($consulta);
-	 }*/
-?>
+	$sliders = $db->consulta("SELECT * FROM sliders where status=1 order by position"); ?>
+<!DOCTYPE">
 <html lang="esp">
   <head>
     <meta charset="utf-8">
@@ -21,42 +17,43 @@
     <title>Sanatorio del Salvador | Home</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+	<link href="./css/styles.css" rel="stylesheet">
 	
 	<!-- Menu responsive -->
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
-	<link href="css/styles-480.css" rel="stylesheet">
-	<link href="css/styles-600.css" rel="stylesheet">
-	<link href="css/styles-768.css" rel="stylesheet">
+	<link href="./css/styles-480.css" rel="stylesheet">
+	<link href="./css/styles-600.css" rel="stylesheet">
+	<link href="./css/styles-768.css" rel="stylesheet">
 	
-	<link rel="stylesheet" href="css/themes/default/default.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/themes/light/light.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/themes/dark/dark.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/themes/bar/bar.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="./css/themes/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/themes/light/light.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/themes/dark/dark.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/themes/bar/bar.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/slider.css" type="text/css" media="screen" />
   </head>
   <body>
 	<!--<div class="superior">[Menú]</div>-->
 	<div class="cuerpo">
 		<div class="cabecera">
-			<?PHP include("/layouts/header.php"); ?>
+			<?PHP require_once("./layouts/header.php"); ?>
 		</div>
 		<div class="container">
-			<?PHP include("/layouts/menu.php"); ?>
+			<?PHP require_once("./layouts/menu.php"); ?>
 		</div>
 		<div class="contenidoHome">
 			<div id="contenedor">
 				<div class="slider-wrapper theme-default">
 					<div id="slider" class="nivoSlider">
-						<img src="img/sliders/toystory.jpg" data-thumb="img/sliders/toystory.jpg" alt="" title="#htmlcaption"/>
-						<!--<a href="http://dev7studios.com"><img src="img/sliders/up.jpg" data-thumb="img/sliders/up.jpg" alt="" title="This is an example of a caption" /></a>
-						<img src="img/sliders/walle.jpg" data-thumb="img/sliders/walle.jpg" alt="" data-transition="slideInLeft" title="#htmlcaption" />
-						<img src="img/sliders/nemo.jpg" data-thumb="img/sliders/nemo.jpg" alt="" title="#htmlcaption" />-->
-					</div>
-					<div id="htmlcaption" class="nivo-html-caption">
-						<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
+						<?PHP 
+						if($db->num_rows($sliders)>0){
+							while($slider=mysql_fetch_array($sliders)){?>
+								<a href="<?PHP echo $slider['url'];?>">
+									<img src="http://localhost/cms/app/webroot/files/sliders/<?PHP echo $slider['photo_dir'];?>/<?PHP echo $slider['photo'];?>" title="<?PHP echo $slider['title'];?>"/>
+								</a>
+						<?PHP }
+						}?>					
 					</div>
 				</div>
 				<hr>
@@ -87,7 +84,13 @@
 					</a>				
 				</div>
 				<hr>
-				<?PHP include("/blocks/ultimas-noticias-home.php"); ?>
+				<?PHP require_once("./blocks/ultimas-noticias-home.php"); ?>
+				<div class="agenda">
+					<?PHP require_once("./blocks/agenda.php"); ?>
+				</div>
+				<div class="prensa">
+					<?PHP require_once("./blocks/editors.php"); ?>
+				</div>
 				<div class="clear"></div>
 			</div>
 		</div>
@@ -95,17 +98,17 @@
 	<footer class="footer">
 		<div class="container">
 			<div id="contenedor">
-				<?PHP include("/layouts/footer-first.php"); ?>
-				<?PHP include("/layouts/footer-second.php"); ?>
-				<?PHP include("/layouts/footer-third.php"); ?>
+				<?PHP require_once("./layouts/footer-first.php"); ?>
+				<?PHP require_once("./layouts/footer-second.php"); ?>
+				<?PHP require_once("./layouts/footer-third.php"); ?>
 			</div>
 		</div><!-- /.container -->
 		<div class="clear"></div>
 		<div class="copyright">
-			<?PHP include("/layouts/copyright.php"); ?>
+			<?PHP require_once("./layouts/copyright.php"); ?>
 		</div><!-- /.copyright -->
 	</footer>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- require_once all compiled plugins (below), or require_once individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>

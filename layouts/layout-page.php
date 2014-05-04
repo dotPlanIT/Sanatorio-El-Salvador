@@ -1,6 +1,5 @@
-<!DOCTYPE html>
 <?PHP 
-	include("/../classes/mysqlclass.php");
+	require_once("/../classes/mysqlclass.php");
 	$db = new MySQL();
 	/*$consulta = $db->consulta("SELECT * FROM institutionals where id=9");
 	if($db->num_rows($consulta)>0){
@@ -11,24 +10,8 @@
 ?>
 <html lang="esp">
   <head>
-    <meta charset="utf-8">
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
-	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-	<script src="js/dotplan.js" type="text/javascript"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
-	
-	<!-- Menu responsive -->
-	<link rel="stylesheet" type="text/css" href="css/menu.css">
-	<link href="css/styles-480.css" rel="stylesheet">
-	<link href="css/styles-600.css" rel="stylesheet">
-	<link href="css/styles-768.css" rel="stylesheet">
+    <title>Sanatorio del Salvador | <?PHP echo $contenido['title'];?></title>
+	<?PHP include("/layouts/common-header.php"); ?>
   </head>
   <body>
 	<!--<div class="superior">[Menú]</div>-->
@@ -39,8 +22,12 @@
 		<div class="container">
 			<?PHP include("/layouts/menu.php"); ?>
 		</div>
-		<div class="agenda">[Columna derecha]</div>
+		<div class="agenda"><?PHP include("/blocks/cta-lateral.php"); ?></div>
 		<div class="contenido">
+			<div class="breadcrumb">
+				<a href="/index.php"><i class="icon-home"></i></a> :: 
+				<a href="/quienes-somos.php">Quienes Somos</a>
+			</div>
 			<div id="contenedor">
 				<div class="bloque">[Texto/Imágenes]</div>
 				<div class="bloque">[Texto/Imágenes]</div>

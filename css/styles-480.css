@@ -1,17 +1,23 @@
 @media screen and (max-width: 480px) {
-	div{
+	/*div{
 		display: block !important;	/* Cuando el ancho sea inferior a 600px el elemento será un bloque */
-		width: 100% !important;
+	/*	width: 100% !important;
 		max-width: 100% !important;
 		margin: auto !important;
 		position: static !important;
 		float: none !important;
-	}
+	}*/
+	
+	div{width: 100% !important;}
 	.cuerpo{
 		padding:0px;
 		box-shadow:none;
 	}
 	
+	.footer-second
+	{ position:relative;
+	
+	}
 	.footer-first,.footer-second,.footer-third{
 		padding:0px;
 	}
@@ -19,4 +25,9 @@
 	.headerLeft{
 		text-align:center;
 	}
+	
+		
+	/*** Slide  ***/
+	
+	
 }

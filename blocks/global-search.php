@@ -1,6 +1,6 @@
 <?php
 // Parametros a ser usados por el Paginador y el Buscador
-$cantidadRegistrosPorPagina	= 1;
+$cantidadRegistrosPorPagina	= 10;
 $cantidadEnlaces            = 5; // Cantidad de enlaces que tendra el paginador.
 $totalRegistros             = 0;
 
@@ -18,7 +18,7 @@ if (isset($_POST['buscar'])) { // Viene por el buscador
 	$objBuscador->addCamposFullText('title, body','lower');
 
 	// Campos que se obtendran como resultado
-	$campos = array('id', 'title', 'body', '\'notices\' as tabla');
+	$campos = array('id', 'title', 'body', '\'novedad\' as tabla');
 	$objBuscador->addCamposResultado($campos);
 
 	// añade a la consulta una condicion fija
@@ -39,8 +39,16 @@ if (isset($_POST['buscar'])) { // Viene por el buscador
 	$objBuscador2->addParametrosFijos("status = 1");
 	$consulta2                = $objBuscador2->getConsultaMysqlMultiple();
 	
+	//especialidades
+	$objBuscador3= new BuscadorFullText($_POST['buscar'], 'specialties');
+	$objBuscador3->addCamposFullText('name, description');
+	$campos = array('id', 'name as title', 'description as body ','\'especialidad\' as tabla');
+	$objBuscador3->addCamposResultado($campos);
+	$objBuscador3->addParametrosFijos("status = 1");
+	$consulta3                = $objBuscador2->getConsultaMysqlMultiple();	
 	
-	$consultaFinal = 'SELECT SQL_CALC_FOUND_ROWS * From (('.$consulta1.') UNION ('.$consulta2.'))A LIMIT %d, %d';
+	
+	$consultaFinal = 'SELECT SQL_CALC_FOUND_ROWS * From (('.$consulta1.') UNION ('.$consulta2.')  UNION ('.$consulta3.'))A LIMIT %d, %d';
 
 	$_SESSION['CONSULTA']    = $consultaFinal;
 
@@ -51,15 +59,7 @@ if (isset($_POST['buscar'])) { // Viene por el buscador
 	$_SESSION['BUSCAR']     = isset($_SESSION['BUSCAR'])? $_SESSION['BUSCAR'] : '';
 }
 
-// incluimos e instanciamos la clase buscadorFullText, pasando como parametros
-// el valor del campo de busqueda y la tabla a buscar.
-?>
-<!--<div align="center">
-<form id="form1" name="form1" method="post" action="">
-	<input type="text" name="buscar" id="buscar" value="<?php echo $_SESSION['BUSCAR']; ?>" />
-	<input type="submit" name="enviar" id="enviar" value="Enviar" />
-</form>-->
-<?php
+
 /*echo $consulta1.'<br /><br />';
 echo $consulta2.'<br /><br />';
 echo $consultaFinal.'<br /><br />';
@@ -68,26 +68,25 @@ echo 'Consulta Generada: <br />' .$consultaLimit      = sprintf($consulta2, $ini
 
 $consultaLimit      = sprintf($consultaFinal, $inicioLimit, $cantidadRegistrosPorPagina);
 
-//echo '</div><br /><br />';
-
 if ($consultaLimit) {
 
 	$resultados         = $db->consulta($consultaLimit);
 	$resultadosCantidad = $db->mysql_fetch_row("SELECT FOUND_ROWS();");
 	$totalRegistros     = $resultadosCantidad[0];   // Se usara en el Paginador
-
+	if($totalRegistros >0 ){
 	// Mostramos los resultados de la forma clasica
-	echo '<table>';
-	while($fila = mysql_fetch_array($resultados)) {
-		echo '<tr >';
-			echo '<td style="border:1px; border-style:solid;">' . $fila['id'] . '</td>';
-			echo '<td style="border:1px; border-style:solid;">' . $fila['title'] . '</td>';
-			echo '<td style="border:1px; border-style:solid;">' . substr($fila['body'],0,500) . '</td>';
-			echo '<td style="border:1px; border-style:solid;">' . $fila['tabla'] . '</td>';
-		echo '</tr>';
+	while($fila = mysql_fetch_array($resultados)) {?>
+		<div class="contentSearch">
+			<a href="./<?php echo $fila['tabla'];?>.php?id=<?php echo $fila['id'];?>">
+				<div class="titleSearch"><?php echo $fila['title'];?></div>
+				<div class="bodySearch"><?php echo strip_tags(substr($fila['body'],0,500));?>...</div>
+			</a>	
+		</div>
+	<?php }
+	}else{?>
+		<div class="MessageSearch">No hemos encontrado resultados para su consulta.</div>
+	<?php 
 	}
-	echo '</table>';
-} else { // Muestro Propiedades del Buscador
 }
 // Comenzamos con el paginador.
 require_once 'classes/search-paginador.php';
@@ -115,6 +114,5 @@ if ($datos) {
 	<?php
 	}
 	echo "</div>";
-}
-?>
+} ?>
 <br />

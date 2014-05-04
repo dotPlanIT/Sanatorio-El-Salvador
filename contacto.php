@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <?php 
-require_once("/classes/mysqlclass.php");
+require_once("./classes/mysqlclass.php");
 $db = new MySQL();
 
 if(isset($_POST['contact_email'])){
@@ -57,16 +57,20 @@ if(isset($_POST['contact_email'])){
 	<!--<div class="superior">[Menú]</div>-->
 	<div class="cuerpo">
 		<div class="cabecera">
-			<?PHP include("/layouts/header.php"); ?>
+			<?PHP include("./layouts/header.php"); ?>
 		</div>
 		<div class="container">
-			<?PHP include("/layouts/menu.php"); ?>
+			<?PHP include("./layouts/menu.php"); ?>
 		</div>
-		<div class="agenda">[Columna derecha]</div>
+		<div class="agenda">
+			<?PHP include("./blocks/cta-lateral.php"); ?>
+			<?PHP require_once("./blocks/agenda.php"); ?>
+			<?PHP require_once("./blocks/editors.php"); ?>
+		</div>
 		<div class="contenido">
 			<div class="breadcrumb">
-				<a href="/index.php"><i class="icon-home"></i></a> :: 
-				<a href="/contacto.php">Contacto</a>
+				<a href="./index.php"><i class="icon-home"></i></a> :: 
+				<a href="./contacto.php">Contacto</a>
 			</div>
 			<div id="contenedor">
 				<div class="pageTitle">Contacto</div>
@@ -93,41 +97,43 @@ if(isset($_POST['contact_email'])){
 						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3405.180799263397!2d-64.1637038!3d-31.409144399999995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a2a76bf3ac45%3A0x2d73933a91752078!2sGeneral+Deheza+542!5e0!3m2!1ses-419!2sar!4v1396383265013" width="460" height="290" frameborder="0" style="border:0"></iframe>
 					</div>
 				</div>
+				<div class="formContact">
+					<div class="contactText">
+						<span>Completá el siguiente formulario, y a la brevedad responderemos su consulta:</span>
+					</div>
+					<div class="contactForm">
+					  <form name="visita" action="" method="post"  onsubmit="return mostrar_informacion(this.contact_email.value)">
+						<div class="contactField"><div class="contactLabel">Nombre: </div><input class="input_text" name="contact_name" type="text"/></div>
+						<div class="clear"></div>
+						<div class="contactField"><div class="contactLabel">Apellido: </div><input class="input_text" name="contact_lastname" type="text"/></div>
+						<div class="clear"></div>
+						<div class="contactField"><div class="contactLabel">Correo Electrónico: </div><input class="input_text" name="contact_email" type="text"/></div>
+						<div class="clear"></div>
+						<div class="contactField"><div class="contactLabel">Consulta: </div><textarea rows="5" class="input_text" name="contact_consultation" /></textarea></div>
+						<div class="clear"></div>
+						<div class="contactField"><input type="submit"  value="Enviar" class="boton" /> </div>
+						<div class="clear"></div>
+					  </form>
+					</div>
+				</div>
 				<div class="clear"></div>
-				<div class="contactText">
-					<span>Completá el siguiente formulario, y a la brevedad responderemos su consulta:</span>
-				</div>
-				<div class="contactForm">
-				  <form name="visita" action="" method="post"  onsubmit="return mostrar_informacion(this.contact_email.value)">
-					<div class="contactField"><div class="contactLabel">Nombre: </div><input class="input_text" name="contact_name" type="text"/></div>
-					<div class="clear"></div>
-					<div class="contactField"><div class="contactLabel">Apellido: </div><input class="input_text" name="contact_lastname" type="text"/></div>
-					<div class="clear"></div>
-					<div class="contactField"><div class="contactLabel">Correo Electrónico: </div><input class="input_text" name="contact_email" type="text"/></div>
-					<div class="clear"></div>
-					<div class="contactField"><div class="contactLabel">Consulta: </div><textarea rows="5" class="input_text" name="contact_consultation" /></textarea></div>
-					<div class="clear"></div>
-					<div class="contactField"><input type="submit"  value="Enviar" class="boton" /> </div>
-					<div class="clear"></div>
-				  </form>
-				</div>
 			</div>
 		</div>
 		<hr>
-		<?PHP include("/blocks/ultimas-noticias-bottom.php"); ?>
+		<?PHP include("./blocks/ultimas-noticias-bottom.php"); ?>
 		<div class="clear"></div>
 	</div>
 	<footer class="footer">
 		<div class="container">
 			<div id="contenedor">
-				<?PHP include("/layouts/footer-first.php"); ?>
-				<?PHP include("/layouts/footer-second.php"); ?>
-				<?PHP include("/layouts/footer-third.php"); ?>
+				<?PHP include("./layouts/footer-first.php"); ?>
+				<?PHP include("./layouts/footer-second.php"); ?>
+				<?PHP include("./layouts/footer-third.php"); ?>
 			</div>
 		</div><!-- /.container -->
 		<div class="clear"></div>
 		<div class="copyright">
-			<?PHP include("/layouts/copyright.php"); ?>
+			<?PHP include("./layouts/copyright.php"); ?>
 		</div><!-- /.copyright -->
 	</footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

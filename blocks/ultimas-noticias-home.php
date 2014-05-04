@@ -2,7 +2,7 @@
 	$consulta = $db->consulta("select n.*, tn.title as type from notices n left join type_notices tn on n.type_notice_id = tn.id where n.status=1 order by n.date desc limit 3");
 ?>
 <div class="lastNews">
-<div class="boxTitle">Últimas <span>Novedades</span></div>
+<div class="boxBoxTitle">Últimas <span>Novedades</span></div>
 <?PHP 
 if($db->num_rows($consulta)>0){
 	$lastClass = "";
@@ -23,7 +23,7 @@ if($db->num_rows($consulta)>0){
 			<span class="noticeTitle"><?PHP echo $notice['title'];?></span>
 			<span class="noticeDrop"><?PHP echo $notice['lower'];?></span>
 		 </div>
-		 <a class="reddMoreLastNews" href="">+</a>
+		  <a class="reddMoreLastNews" href="./novedad.php?id=<?PHP echo $notice['id'];?>">+</a>
 		</div>
 		
 	<?PHP }

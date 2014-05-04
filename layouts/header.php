@@ -1,14 +1,17 @@
 <?PHP 
-	require_once("/classes/mysqlclass.php");
+	require_once("./classes/mysqlclass.php");
 	$db = new MySQL();
 	$configurations = $db->consulta("SELECT * FROM configurations");
 	if($db->num_rows($configurations)>0){
 	  $configuration = $db->fetch_array($configurations);
 	 }
-	if (isset($_POST['buscar'])) { // Viene por el buscador
-		$_SESSION['BUSCAR'] = $_POST['buscar'];
+	if (isset($_POST['buscar'])) {
+		$_SESSION['variable'] = $_POST['buscar'];
+		
+	}else if(isset($_SESSION['BUSCAR'])) {
+		$_SESSION['variable'] = $_SESSION['BUSCAR'];
 	}else{
-		$_SESSION['BUSCAR'] ="";
+		$_SESSION['variable'] = "";
 	}
 ?>
 <div class="headerLeft"><a href="http://sanatoriodelsalvador.com"><img src="img/logo.png"/></a></div>
@@ -20,7 +23,7 @@
 	<div class="clear"></div>
 	<div class="headerLineSecond">
 		<form name="global-search" action="search.php" method="post">
-			<input type="text" name="buscar" id="buscar" value="<?php echo $_SESSION['BUSCAR']; ?>" />
+			<input type="text" name="buscar" id="buscar" value="<?php echo $_SESSION['variable']; ?>" />
 			<input id="enviar"  name="enviar" type='submit' value="." class="headerSearchSubmit" />
 		</form>
 	</div>

@@ -1,0 +1,39 @@
+@media screen and (max-width: 875px) {
+
+	#contenedor .bloque{
+		display: block !important;	/* Cuando el ancho sea inferior a 768px el elemento será un bloque */
+		width: auto !important;
+	}
+	
+    .active {
+        display: block;
+    }
+    .nav > li {
+        float: none;
+    }
+    .nav > li > .parent {
+        background-position: 95% 50%;
+    }
+    .nav li li .parent {
+        background-image: url("img/menu/downArrow.png");
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+    .nav ul {
+        display: block;
+        width: 100%;
+    }
+   .nav > li.hover > ul , .nav li li.hover ul {
+        position: static;
+    }
+}
+
+
+/*Para que el menu no se rompa */
+@media screen and (max-width: 1070px) {
+    .nav a{padding: 14px 10px;}
+}
+
+@media screen and (min-width: 1070px) {
+	.nav > li > ul{width:170px; padding-right:15px;background-color:#FFF; width:100%;}
+}

@@ -1,6 +1,4 @@
-
 var ww = document.body.clientWidth;
-
 $(document).ready(function() {
 	$(".nav li a").each(function() {
 		if ($(this).next().length > 0) {

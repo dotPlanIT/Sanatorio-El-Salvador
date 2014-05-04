@@ -46,7 +46,8 @@ a {text-decoration: none;}
 .nav > li > ul > li > .parent{
 	background-image: url("../img/menu/arrow-menu.png");
 	background-repeat: no-repeat;
-    background-position: right center;
+    background-position: 90% center;
+	padding-right:15px;
 }
 
 .nav li ul li a:hover{font-weight:bold;}
@@ -81,4 +82,5 @@ a {text-decoration: none;}
 
 .menuTop{text-transform:uppercase;font-size:14px; border-top:2px solid #FFF;}
 .menuTop:hover{text-transform:uppercase;font-size:14px; color:#469CA7; border-top:2px solid #469CA7;}
+
 
