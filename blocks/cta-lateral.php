@@ -1,32 +1,16 @@
+<?PHP
+	$consulta = $db->consulta("select * from buttons where status=1 order by position desc limit 4");
+?>
 <div class="lateralCallToActions">
-	<a href="">
+<?php 
+if($db->num_rows($consulta)>0){
+	while($cta = mysql_fetch_array($consulta)){?>
+	<a href="<?PHP echo $cta['link'];?>">
 		<div class="lateralCallToAction">
-			<img src="img/home/home-turnero.png" />
-			<span>Reserv&Aacute; tu </span><br/><span class="CTAText">turno online</span>
+			<img src="http://localhost/cms/app/webroot/files/buttons/<?PHP echo $cta['image_dir'];?>/button_<?PHP echo $cta['image'];?>" onerror="this.onerror=null;this.src='./img/default/icon-S.png';" />
+			<span><?PHP echo $cta['phrase1'];?></span><br/><span class="CTAText"><?PHP echo $cta['phrase2'];?></span>
 		</div>
 	</a>
-	<a href="">
-		<div class="lateralCallToAction">
-			<img src="img/home/home-medicos.png" />
-			<span>Nuestros </span><br/><span class="CTAText">M&Eacute;dicos</span>
-		</div>
-	</a>
-	<a href="">
-		<div class="lateralCallToAction">
-			<img src="img/home/home-address.png" />
-			<span>Nuestra </span><br/><span class="CTAText">ubicaci&oacute;n</span>
-		</div>
-	</a>
-	<a href="">
-		<div class="lateralCallToAction">
-			<img src="img/home/home-suscriptions.png" />
-			<span>Suscribite a </span><br/><span class="CTAText">Salvador Noticias</span>
-		</div>
-	</a>
-	<a  href="">
-		<div class="lateralCallToAction last">
-			<img src="img/home/home-preguntas-frecuentes.png" />
-			<span>Preguntas </span><br/><span class="CTAText">Frecuentes</span>
-		</div>
-	</a>				
+	<?php }
+}?>			
 </div>

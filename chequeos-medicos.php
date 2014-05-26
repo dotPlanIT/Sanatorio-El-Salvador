@@ -2,14 +2,20 @@
 <?PHP 
 	require_once("./classes/mysqlclass.php");
 	$db = new MySQL();
-	$consulta = $db->consulta("SELECT * FROM institutionals where id=9");
+	$consulta = $db->consulta("SELECT * FROM institutionals where id=13");
+	$error404 = false;
+	$title = "Institucionales";
 	if($db->num_rows($consulta)>0){
 	  $contenido = $db->fetch_array($consulta);
+	  $title = $contenido['title'];
+	 }else{
+		$title = "Institucionales";
+		$error404 = true;
 	 }
 ?>
 <html lang="esp">
   <head>
-    <title>Sanatorio del Salvador | <?PHP echo $contenido['title'];?></title>
+    <title>Sanatorio del Salvador | <?PHP echo $title;?></title>
 	<?PHP include("./layouts/common-header.php"); ?>
   </head>
   <body>
@@ -21,14 +27,19 @@
 		<div class="container">
 			<?PHP include("./layouts/menu.php"); ?>
 		</div>
-		<div class="agenda"><?PHP include("./blocks/cta-lateral.php"); ?></div>
+		<div class="agenda">
+			<?PHP include("./blocks/cta-lateral.php"); ?>
+			<?PHP require_once("./blocks/agenda.php"); ?>
+			<?PHP require_once("./blocks/editors.php"); ?>
+		</div>
 		<div class="contenido">
+		<?php if($error404 == false){ ?>
 			<div class="breadcrumb">
 				<a href="./index.php"><i class="icon-home"></i></a> :: 
-				<a href="./quienes-somos.php">Quienes Somos</a>
+				<a href="./chequeos-medicos.php">Servicios :: Chequeos M&eacute;dicos</a>
 			</div>
 			<div id="contenedor">
-				<div class="pageTitle">Quienes <span>Somos</span></div>
+				<div class="pageTitle">Chequeos M&eacute;dicos</div>
 				<div class="actionsBody">
 					<button type="button" onclick="agrandar('.pageBody')">A+</button>
 					<button type="button" onclick="achicar('.pageBody')">A-</button>
@@ -37,16 +48,12 @@
 					<?PHP echo $contenido['body'];?>
 				</div>
 			</div>
+			<?php } else{
+				  include("./layouts/error-404.php"); ?>
+				  <div class="clear"></div>
+			<?php } ?>
 		</div>
-		<!-- AddThis Button BEGIN -->
-		<div class="addthis_toolbox addthis_default_style">
-			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-			<a class="addthis_button_tweet"></a>
-			<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-			<a class="addthis_counter addthis_pill_style"></a>
-		</div>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-533976252b0cdbc3"></script>
-		<!-- AddThis Button END -->
+		<?PHP include("./blocks/addThis-button.php"); ?>
 		<hr>
 		<?PHP include("./blocks/ultimas-noticias-bottom.php"); ?>
 		<div class="clear"></div>

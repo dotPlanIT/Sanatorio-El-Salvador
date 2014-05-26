@@ -2,18 +2,20 @@
 <?PHP 
 	require_once("./classes/mysqlclass.php");
 	$db = new MySQL();
+	$error404 = false;
+	$title = "Especialidades";
 	if(isset($_GET['especialidad'])){
 		$consulta = $db->consulta("SELECT * FROM specialties where id=".$_GET['especialidad']);
 		if($db->num_rows($consulta)>0){
 		  $contenido = $db->fetch_array($consulta);
 		 }else{
-			$messageEmpty = "No se encontro ning&uacute;na especialidad";
-			$contenido['title'] = "Eventos";
-		}
-	}else{
-		$messageEmpty = "No se encontro ning&uacute;na especialidad";
-		$contenido['title'] = "Especialidades";
-	}
+			$title = "Especialidades";
+			$error404 = true;
+		 }
+	 }else{
+		$title = "Especialidades";
+		$error404 = true;
+	 }
 ?>
 <html lang="esp">
   <head>
@@ -35,6 +37,7 @@
 			<?PHP require_once("./blocks/editors.php"); ?>
 		</div>
 		<div class="contenido">
+		<?php if($error404 == false){ ?>
 			<div class="breadcrumb">
 				<a href="./index.php"><i class="icon-home"></i></a> :: 
 				<a href="./especialidades.php">Servicios :: Especialidades</a> 
@@ -53,19 +56,19 @@
 							<?php if($contenido['id'] !=""){ ?> 
 							<li><a href="http://localhost/Sanatorio-El-Salvador/especialidad.php?especialidad=<?PHP echo $contenido['id'];?>#General">Staff de Profesionales M&eacute;dicos</a></li>
 							<?php } ?>   
-							<?php if($contenido['id'] !=""){ ?> 
+							<?php if($contenido['description'] !=""){ ?> 
 							<li><a href="http://localhost/Sanatorio-El-Salvador/especialidad.php?especialidad=<?PHP echo $contenido['id'];?>#Description">Descripci&oacute;n</a></li>
 							<?php } ?>   
-							<?php if($contenido['id'] !=""){ ?> 
+							<?php if($contenido['sub_specialties'] !=""){ ?> 
 							<li><a href="http://localhost/Sanatorio-El-Salvador/especialidad.php?especialidad=<?PHP echo $contenido['id'];?>#sub_specialties">Sub-Especialidades</a></li>
 							<?php } ?>  
-							<?php if($contenido['id'] !=""){ ?> 
+							<?php if($contenido['practices'] !=""){ ?> 
 							<li><a href="http://localhost/Sanatorio-El-Salvador/especialidad.php?especialidad=<?PHP echo $contenido['id'];?>#Practices">Pr&aacute;cticas y Procedimientos</a></li>
 							<?php } ?>   
-							<?php if($contenido['id'] !=""){ ?> 
+							<?php if($contenido['infrastructure'] !=""){ ?> 
 							<li><a href="http://localhost/Sanatorio-El-Salvador/especialidad.php?especialidad=<?PHP echo $contenido['id'];?>#Infrastructure">Infraestructura / Equipamiento</a></li>
 							<?php } ?>  
-							<?php if($contenido['id'] !=""){ ?> 
+							<?php if($contenido['other'] !=""){ ?> 
 							<li><a href="http://localhost/Sanatorio-El-Salvador/especialidad.php?especialidad=<?PHP echo $contenido['id'];?>#Other">Otros</a></li>
 							<?php } ?>  
 						  </ul>
@@ -78,33 +81,60 @@
 						<?php if($contenido['id'] !=""){ ?> 
 						<div id="General">
 							<div class="titleSpeciality">Staff de Profesionales M&eacute;dicos</div>
+							<?php 
+								//Consulto por el jefe
+								$consulta = $db->consulta("SELECT * FROM providers where specialty_id=".$_GET['especialidad']. " And job = 2");
+								if($db->num_rows($consulta)>0){
+									  $provider = $db->fetch_array($consulta);
+									  $cv = "";
+									  if($provider['cv'] != ""){
+									   $cv = '<a href="./medico.php?medico='.$provider['id'].'"> (Ver CV)</a>';
+									  }?>
+									  <div class="jefeMedico"><b><?PHP echo $provider['name'];?></b><?php echo $cv;?></div>
+									  <?php 
+								} 
+								// Consulto por los medicos
+								$consulta = $db->consulta("SELECT * FROM providers where specialty_id=".$_GET['especialidad']. " And job = 1 order by name asc");
+								if($db->num_rows($consulta)>0){
+								    echo '<div class="equipoMedico">Equipo M&eacute;dico:</div>';
+									while($MostrarFila=mysql_fetch_array($consulta)){
+									 $cv = "";
+									 if($MostrarFila['cv'] != ""){
+										$class="providerName";
+										$cv = '<a href="./medico.php?medico='.$provider['id'].'"> (Ver CV)</a>';
+									 } ?>
+										<div class="providerSinCV"><?php echo $MostrarFila['name']; ?><?php echo $cv;?></div>
+									<?php  
+									}
+								} 								
+							 ?>
 						</div>
 						<?php } ?>  
-						<?php if($contenido['id'] !=""){ ?> 
+						<?php if($contenido['description'] !=""){ ?> 
 					  	<div id="Description">
 							<div class="titleSpeciality">Descripci&oacute;n</div>
 							<?PHP echo $contenido['description'];?>
 						</div>
 						<?php } ?> 
-						<?php if($contenido['id'] !=""){ ?> 
+						<?php if($contenido['sub_specialties'] !=""){ ?> 
 						<div id="sub_specialties">
 							<div class="titleSpeciality">Sub-Especialidades</div>
 							<?PHP echo $contenido['sub_specialties'];?>
 						</div>
 						<?php } ?>  
-						<?php if($contenido['id'] !=""){ ?> 
+						<?php if($contenido['practices'] !=""){ ?> 
 						<div id="Practices">
 							<div class="titleSpeciality">Pr&aacute;cticas y Procedimientos</div>
 							<?PHP echo $contenido['practices'];?>
 						</div>
 						<?php } ?>  
-						<?php if($contenido['id'] !=""){ ?> 
+						<?php if($contenido['infrastructure'] !=""){ ?> 
 						<div id="Infrastructure">
 							<div class="titleSpeciality">Infraestructura / Equipamiento</div>
 							<?PHP echo $contenido['infrastructure'];?>
 						</div>	
 						<?php } ?>  
-						<?php if($contenido['id'] !=""){ ?> 						
+						<?php if($contenido['other'] !=""){ ?> 						
 						<div id="Other">
 							<div class="titleSpeciality">Otros</div>
 							<?PHP echo $contenido['other'];?>
@@ -114,17 +144,12 @@
 					</div>
 				<?php } ?>
 			</div>
+			<?php } else{
+				  include("./layouts/error-404.php"); ?>
+				  <div class="clear"></div>
+			<?php } ?>
 		</div>
-		<div class="clear"></div>
-		<!-- AddThis Button BEGIN -->
-		<div class="addthis_toolbox addthis_default_style">
-			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-			<a class="addthis_button_tweet"></a>
-			<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-			<a class="addthis_counter addthis_pill_style"></a>
-		</div>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-533976252b0cdbc3"></script>
-		<!-- AddThis Button END -->
+		<?PHP include("./blocks/addThis-button.php"); ?>
 		<hr>
 		<?PHP include("./blocks/ultimas-noticias-bottom.php"); ?>
 		<div class="clear"></div>

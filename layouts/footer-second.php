@@ -20,4 +20,10 @@
 			<?PHP echo $configuration['email_one'];?>
 		</span>
 	</div>
+	<div class="footerCV">
+		<img src="img/footer/footer-CV.png" />
+			<span class="paddingVertical2 font15">
+				Si quer&eacute;s trabajar con nosotros, <br/>ingres&aacute; tu CV <a href="./rrhh.php">aqu&iacute;</a>
+			</span>
+	</div>	
 </div>

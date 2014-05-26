@@ -1,6 +1,6 @@
 <div class="footer-third">
 	<div class="maps">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.1807992634!2d-64.16370379999998!3d-31.409144399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a2a76bf3ac45%3A0x2d73933a91752078!2sGeneral+Deheza+542!5e0!3m2!1ses-419!2s!4v1395961877223" width="280" height="200" frameborder="0" style="border:0; float:right;"></iframe>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.1807992634!2d-64.16370379999998!3d-31.409144399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a2a76bf3ac45%3A0x2d73933a91752078!2sGeneral+Deheza+542!5e0!3m2!1ses-419!2s!4v1395961877223" width="310" height="275" frameborder="0" style="border:0; float:right;"></iframe>
 	</div>
 	<div class="clear"></div>
 	<div class="footerSocial">

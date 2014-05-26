@@ -6,6 +6,7 @@ include("./classes/mysqlclass.php");
 <html lang="esp">
   <head>
     <meta charset="utf-8">
+	<?php $baseCMS = "http://sanatoriodelsalvador.com/cms/";?>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
@@ -14,6 +15,7 @@ include("./classes/mysqlclass.php");
 	<script src="js/dotplan.js" type="text/javascript"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="./img/icons/favicon.ico" />
     <title>Sanatorio del Salvador | Home</title>
 
     <!-- Bootstrap -->
@@ -57,32 +59,7 @@ include("./classes/mysqlclass.php");
 					</div>
 				</div>
 				<hr>
-				<div class="homeCallToActions">
-					<a href="">
-						<div class="homeCallToAction">
-							<img src="img/home/home-turnero.png" /><br />
-							<span>Reserv&Aacute; tu </span><br/><span class="CTAText">turno online</span>
-						</div>
-					</a>
-					<a href="">
-						<div class="homeCallToAction">
-							<img src="img/home/home-medicos.png" /><br />
-							<span class="headerText">Nuestros </span><br/><span class="CTAText">M&Eacute;dicos</span>
-						</div>
-					</a>
-					<a href="">
-						<div class="homeCallToAction">
-							<img src="img/home/home-suscriptions.png" /><br />
-							<span class="headerText">Suscribite a </span><br/><span class="CTAText">Salvador Noticias</span>
-						</div>
-					</a>
-					<a  href="">
-						<div class="homeCallToAction last">
-							<img src="img/home/home-preguntas-frecuentes.png" /><br />
-							<span class="headerText">Preguntas </span><br/><span class="CTAText">Frecuentes</span>
-						</div>
-					</a>				
-				</div>
+					<?PHP require_once("./blocks/cta-home.php"); ?>
 				<hr>
 				<?PHP require_once("./blocks/ultimas-noticias-home.php"); ?>
 				<div class="agenda">

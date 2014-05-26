@@ -3,8 +3,11 @@
 	require_once("./classes/mysqlclass.php");
 	$db = new MySQL();
 	$consulta = $db->consulta("SELECT n.*, tn.title as tipo, DATE_FORMAT(n.date,'%d-%m-%Y') as fecha FROM notices n left join type_notices tn on n.type_notice_id = tn.id where n.status = 1 and n.id=".$_GET['id']);
+	$error404 = false;	
 	if($db->num_rows($consulta)>0){
-	  $contenido = $db->fetch_array($consulta);
+		$contenido = $db->fetch_array($consulta);
+	 }else{
+		$error404 = true;
 	 }
 ?>
 <html lang="esp">
@@ -28,6 +31,7 @@
 			<?PHP require_once("./blocks/editors.php"); ?>
 		</div>
 		<div class="contenido">
+		<?php if($error404 == false){ ?>
 			<?php if($db->num_rows($consulta)>0){?>
 				<div class="breadcrumb">
 					<a href="./index.php"><i class="icon-home"></i></a> :: 
@@ -50,7 +54,7 @@
 						<div class="noticeDrop"><?PHP echo strip_tags($contenido['lower']);?></div>
 					</div>
 					<div class="noticeHeaderRight">
-						<div class="noticeImage"><img src="http://localhost/cms/app/webroot/files/notices/<?PHP echo $contenido['image_dir'];?>/notice_<?PHP echo $contenido['image'];?>" /></div>
+						<div class="noticeImage"><img src="http://localhost/cms/app/webroot/files/notices/<?PHP echo $contenido['image_dir'];?>/notice_<?PHP echo $contenido['image'];?>"/></div>
 					</div>
 					<div class="pageBody">
 						<?PHP echo $contenido['body'];?>
@@ -61,8 +65,16 @@
 			<?php }else{
 			  echo "ver de poner algo para cuando no hay nada";
 			}?>
+			<?php } else{
+				  include("./layouts/error-404.php"); ?>
+				  <div class="clear"></div>
+			<?php } ?>
 		</div>
+	<hr>
+	<?PHP include("./blocks/ultimas-noticias-bottom.php"); ?>	
 	</div>
+	<div class="clear"></div>
+	
 	<footer class="footer">
 		<div class="container">
 			<div id="contenedor">

@@ -18,7 +18,7 @@ if (isset($_POST['buscar'])) { // Viene por el buscador
 	$objBuscador->addCamposFullText('title, body','lower');
 
 	// Campos que se obtendran como resultado
-	$campos = array('id', 'title', 'body', '\'novedad\' as tabla');
+	$campos = array('id', 'title', 'body', '\'novedad\' as tabla','\'id\' as getParam');
 	$objBuscador->addCamposResultado($campos);
 
 	// añade a la consulta una condicion fija
@@ -34,21 +34,53 @@ if (isset($_POST['buscar'])) { // Viene por el buscador
 	//Institutionals
 	$objBuscador2= new BuscadorFullText($_POST['buscar'], 'institutionals');
 	$objBuscador2->addCamposFullText('title, body');
-	$campos = array('id', 'title', 'body ','\'institutionals\' as tabla');
+	$campos = array('id', 'title', 'body ','\'institucional\' as tabla','\'id\' as getParam');
 	$objBuscador2->addCamposResultado($campos);
 	$objBuscador2->addParametrosFijos("status = 1");
 	$consulta2                = $objBuscador2->getConsultaMysqlMultiple();
 	
-	//especialidades
+	//Especialidades
 	$objBuscador3= new BuscadorFullText($_POST['buscar'], 'specialties');
-	$objBuscador3->addCamposFullText('name, description');
-	$campos = array('id', 'name as title', 'description as body ','\'especialidad\' as tabla');
+	$objBuscador3->addCamposFullText('name, description, sub_specialties, infrastructure, practices, other');
+	$campos = array('id', 'name as title', 'description as body ','\'especialidad\' as tabla','\'especialidad\' as getParam');
 	$objBuscador3->addCamposResultado($campos);
 	$objBuscador3->addParametrosFijos("status = 1");
-	$consulta3                = $objBuscador2->getConsultaMysqlMultiple();	
+	$consulta3                = $objBuscador3->getConsultaMysqlMultiple();	
+
+	//Eventos
+	$objBuscador4= new BuscadorFullText($_POST['buscar'], 'events');
+	$objBuscador4->addCamposFullText('title, body, place, receivers');
+	$campos = array('id', 'title', 'body ','\'evento\' as tabla','\'evento\' as getParam');
+	$objBuscador4->addCamposResultado($campos);
+	$objBuscador4->addParametrosFijos("status = 1");
+	$consulta4                = $objBuscador4->getConsultaMysqlMultiple();		
+	
+	//Prensa
+	$objBuscador5= new BuscadorFullText($_POST['buscar'], 'editors');
+	$objBuscador5->addCamposFullText('title, body');
+	$campos = array('id', 'title', 'body ','\'editors\' as tabla','\'prensa\' as getParam');
+	$objBuscador5->addCamposResultado($campos);
+	$objBuscador5->addParametrosFijos("status = 1");
+	$consulta5                = $objBuscador5->getConsultaMysqlMultiple();	
+
+	//Preguntas frecuentes
+	$objBuscador5= new BuscadorFullText($_POST['buscar'], 'faqs');
+	$objBuscador5->addCamposFullText('question, response');
+	$campos = array('id', 'question as title', 'response as body ','\'faqs\' as tabla','\'pregunta\' as getParam');
+	$objBuscador5->addCamposResultado($campos);
+	$objBuscador5->addParametrosFijos("status = 1");
+	$consulta5                = $objBuscador5->getConsultaMysqlMultiple();		
+	
+	//Medicos
+	$objBuscador6= new BuscadorFullText($_POST['buscar'], 'providers');
+	$objBuscador6->addCamposFullText('name, cv, enrollment');
+	$campos = array('id', 'name as title', 'cv as body ','\'medico\' as tabla','\'medico\' as getParam');
+	$objBuscador6->addCamposResultado($campos);
+	$objBuscador6->addParametrosFijos("status = 1");
+	$consulta6                = $objBuscador6->getConsultaMysqlMultiple();		
 	
 	
-	$consultaFinal = 'SELECT SQL_CALC_FOUND_ROWS * From (('.$consulta1.') UNION ('.$consulta2.')  UNION ('.$consulta3.'))A LIMIT %d, %d';
+	$consultaFinal = 'SELECT SQL_CALC_FOUND_ROWS * From (('.$consulta1.') UNION ('.$consulta2.')  UNION ('.$consulta3.') UNION ('.$consulta4.') UNION ('.$consulta5.') UNION ('.$consulta6.'))A LIMIT %d, %d';
 
 	$_SESSION['CONSULTA']    = $consultaFinal;
 
@@ -77,7 +109,7 @@ if ($consultaLimit) {
 	// Mostramos los resultados de la forma clasica
 	while($fila = mysql_fetch_array($resultados)) {?>
 		<div class="contentSearch">
-			<a href="./<?php echo $fila['tabla'];?>.php?id=<?php echo $fila['id'];?>">
+			<a href="./<?php echo $fila['tabla'];?>.php?<?php echo $fila['getParam'];?>=<?php echo $fila['id'];?>">
 				<div class="titleSearch"><?php echo $fila['title'];?></div>
 				<div class="bodySearch"><?php echo strip_tags(substr($fila['body'],0,500));?>...</div>
 			</a>	
@@ -116,3 +148,10 @@ if ($datos) {
 	echo "</div>";
 } ?>
 <br />
+
+
+
+
+
+
+

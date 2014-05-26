@@ -1,22 +1,98 @@
 ﻿<!DOCTYPE html>
 <?php 
+ini_set('SMTP','localhost' ); 
+ini_set('sendmail_from', 'info@sanatoriodelsalvador.com');
 require_once("./classes/mysqlclass.php");
+require_once './classes/PHPMailer/PHPMailerAutoload.php';
+
 $db = new MySQL();
 
 if(isset($_POST['contact_email'])){
-    $mailDeContacto = $_POST['contact_email'];
+
+$to = 'info@sanatoriodelsalvador.com';
+$subject = 'Example subject';
+$body = 'With an example body…'; 
+
+mail($to, $subject , $body);
+
+
+
+	//Create a new PHPMailer instance
+	/*$mail = new PHPMailer(true);
+	$mail->CharSet = 'UTF-8';*/
+	//Set who the message is to be sent from
+	//$mail->setFrom('info@sanatoriodelsalvador.com');
+	//Set an alternative reply-to address
+	//$mail->addReplyTo('info@sanatoriodelsalvador.com');
+	
+
+	
+	
+	
+	/* Por gmail */
+	/*$mail->IsSMTP();
+	$mail->Mailer = "smtp";
+	$mail->SMTPSecure = "ssl";
+	$mail->Host = "smtp.gmail.com";
+	$mail->Port = 465;
+	$mail->SMTPAuth = true;
+	$mail->Username = "sanatoriodelsalvadorweb@gmail.com"; // SMTP username
+	$mail->Password = "Sanatorio2013"; // SMTP password*/
+	
+	
+	
+//$mail->Host = "smtp.gmail.com"; 
+
+	
+	
+	
+	//Set who the message is to be sent to
+	//$mail->addAddress('leilu.and@gmail.com');
+	//Set the subject line
+	//$mail->Subject = 'PHPMailer test local';
+
+	
+	
+	//Read an HTML message body from an external file, convert referenced images to embedded,
+	//convert HTML into a basic plain-text alternative body
+	//$mail->msgHTML(file_get_contents('./classes/PHPMailer/examples/contents.html'), dirname(__FILE__));
+	//Replace the plain text body with one created manually
+	//$mail->AltBody = 'This is a message body';
+	//Attach an image file
+	//$mail->addAttachment('./classes/PHPMailer/examples/images/phpmailer_mini.png');
+
+	//send the message, check for errors
+	/*if (!$mail->send()) {
+		echo "Mailer Error: " . $mail->ErrorInfo;
+	} else {
+		echo "Message sent!";
+	}*/
+}
+
+if(isset($_POST['contact_email1'])){
+    $name = $_POST['contact_name'];
+	$lastname = $_POST['contact_lastname'];
+	$mailDeContacto = $_POST['contact_email'];
+	$consultation = $_POST['contact_consultation'];
 	$destinatario = "leilu.and@gmail.com,leila_and@yahoo.com"; 
-	$asunto = "Hay una persona interesada en tu sitio"; 
+	$asunto = "Recibiste una consulta desde la web sanatariodelsalvador.com"; 
 	$cuerpo = ' 
 	<html> 
 	<head> 
-	   <title>Tirulo</title> 
+	   <title>Consulta desde el formulario de contacto</title> 
 	</head> 
 	<body> 
-	<h1>Hola!</h1> 
+	<h1>Consulta desde el formulario de contacto</h1> 
 	<p> 
-	<b> Han ingresado una direccion de correo en tu sitio "'. $mailDeContacto .'" , esta persona esta interesada en tu sitio, avisale cuando este online.. y blabla bla inventemos algo aca
+	<b> Han ingresado una direccion de correo> "'. $mailDeContacto .'" , esta persona esta interesada en tu sitio sanatariodelsalvador.com , avisale cuando este online.. y blabla bla inventemos algo aca
 	</p> 
+	
+	<ul>
+		<li><span>Nombre y Apellido: </span><b>"'. $name .'"&nbsp; "'. $lastname .'"</b></li>
+		<li><span>Correo electr&oacute;nico: </span><b>"'. $mailDeContacto .'"</b></li>
+		<li><span>Consulta / Sugerencia: </span><b>"'. $consultation .'"</b></li>
+	</ul>
+	
 	</body> 
 	</html> 
 	';
@@ -26,11 +102,18 @@ if(isset($_POST['contact_email'])){
 	$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
 
 	//dirección del remitente 
-	$headers .= "From: dotPlan <info@dot-plan.com>\r\n"; 
+	$headers .= "From: dotPlan <info@sanatoriodelsalvador.com>\r\n"; 
 
 	//dirección de respuesta, si queremos que sea distinta que la del remitente 
-	$headers .= "Reply-To: info@dot-plan.com\r\n"; 
-	mail($destinatario,$asunto,$cuerpo,$headers); 
+	$headers .= "Reply-To: info@sanatoriodelsalvador.com\r\n"; 
+	
+*/
+	
+	if(mail($destinatario,$asunto,$cuerpo,$headers)){
+		echo "se encio";
+	}else{
+		echo "no se envio";
+	}
 } ?>
 <html lang="esp">
   <head>
@@ -52,6 +135,13 @@ if(isset($_POST['contact_email'])){
 	<link href="css/styles-480.css" rel="stylesheet">
 	<link href="css/styles-600.css" rel="stylesheet">
 	<link href="css/styles-768.css" rel="stylesheet">  
+	<script>
+		function mostrar_informacion(cosa){
+		
+			alert(cosa);
+		}
+	</script>
+	
   </head>
   <body>
 	<!--<div class="superior">[Menú]</div>-->
@@ -119,8 +209,6 @@ if(isset($_POST['contact_email'])){
 				<div class="clear"></div>
 			</div>
 		</div>
-		<hr>
-		<?PHP include("./blocks/ultimas-noticias-bottom.php"); ?>
 		<div class="clear"></div>
 	</div>
 	<footer class="footer">

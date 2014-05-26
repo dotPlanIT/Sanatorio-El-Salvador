@@ -18,8 +18,10 @@ function validarEmail(formulario) {
 </script>
 <div class="footer-first">
 	<div id="modal" class="footerSuscription">
-		<span class="footerSuscriptionTitle">Suscribite a nuestro<br/><b>bolet&iacute;n oficial</b></span>
-		<div class="paddingVertical2"><img src="img/footer/salvador-noticias.png" /></div>
+		<a href="./salvador-noticias.php">
+			<span class="footerSuscriptionTitle">Suscribite a nuestro<br/><b>bolet&iacute;n oficial</b></span>
+			<div class="paddingVertical2"><img src="img/footer/salvador-noticias.png" /></div>
+		</a>
 		<span id="formMessage"></span>
 		<form action="http://gbactivo.net/pub/suscr.aspx" method="post" onSubmit = "return validarEmail(this)" name="boletin-oficial" id="boletin-oficial" class="paddingVertical2">
 			<input type="hidden" name="CodCuenta" value="QSK3485" />
@@ -31,7 +33,10 @@ function validarEmail(formulario) {
 		<span class="paddingVertical2 font15">Mir&aacute; nuestras ediciones <a href="./salvador-noticias.php">aqu&iacute;</a></span>
 		<div class="overlay"></div>
 	</div>
-	<div class="footerCV">
+	<div class="footerFundacion">
+		<a href="./fundacion-pro-medica.php"><img src="img/footer/fundacion.png" /></a>
+	</div>	
+	<!--<div class="footerCV">
 		<img src="img/footer/footer-CV.png" /><span class="paddingVertical2 font15">Si quer&eacute;s trabajar con nosotros, <br/>ingres&aacute; tu CV <a href="./rrhh.php">aqu&iacute;</a></span>
-	</div>
+	</div>-->
 </div>

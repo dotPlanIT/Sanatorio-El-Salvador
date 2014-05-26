@@ -2,7 +2,7 @@
 	$consulta = $db->consulta("select n.*, tn.title as type from notices n left join type_notices tn on n.type_notice_id = tn.id where n.status=1 order by n.date desc limit 3");
 ?>
 <div class="lastNews">
-<div class="boxBoxTitle">Últimas <span>Novedades</span></div>
+<a href="./novedades.php"><div class="boxBoxTitle">Últimas <span>Novedades</span></a></div>
 <?PHP 
 if($db->num_rows($consulta)>0){
 	$lastClass = "";
@@ -14,7 +14,7 @@ if($db->num_rows($consulta)>0){
 		 $lastClass = 'lastNotice';
 		}?>
 		<div class="box-notice <?PHP echo $lastClass;?>">
-		 <img src="http://localhost/cms/app/webroot/files/notices/<?PHP echo $notice['image_dir'];?>/home_<?PHP echo $notice['image'];?>" />
+		 <img src="<?php echo $baseCMS;?>app/webroot/files/notices/<?PHP echo $notice['image_dir'];?>/home_<?PHP echo $notice['image'];?>" />
 		 <div class="contetTypeNotice">
 			 <span class="typeNotice"><?PHP echo $notice['type'];?></span>
 			 <span class="dateNotice"><?PHP echo $date->format('d/m/Y');?></span>

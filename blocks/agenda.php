@@ -14,12 +14,13 @@ if($db->num_rows($consulta)>0){
 					<span class="monthEvent"><?PHP echo $date->format('M');?></span>
 				</div>
 				<div class="titleEvent"><?PHP echo $event['title'];?></div>
-				<span class="dropEvent"><?PHP echo strip_tags($event['cuerpo']);?>...</span>
+				<span class="dropEvent"><?PHP echo strip_tags($event['cuerpo']);?></span>
 				<div class="clear"></div>
 				<hr>
 				<div class="receiversEvent">Destinado a <?PHP echo $event['receivers'];?></div>
 			</div>
 		</a>
 	<?php }
-}?>				
+}?>	
+<div class="TitleFooterEvents"><a href="eventos.php">Próximos Eventos</a></div>			
 </div>

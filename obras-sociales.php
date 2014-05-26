@@ -2,10 +2,6 @@
 <?PHP 
 	require_once("./classes/mysqlclass.php");
 	$db = new MySQL();
-	$consulta = $db->consulta("SELECT * FROM institutionals where id=9");
-	if($db->num_rows($consulta)>0){
-	  $contenido = $db->fetch_array($consulta);
-	 }
 ?>
 <html lang="esp">
   <head>
@@ -22,9 +18,7 @@
 			<?PHP include("./layouts/menu.php"); ?>
 		</div>
 		<div class="agenda">
-			<?PHP include("./blocks/cta-lateral.php"); ?>
-			<?PHP require_once("./blocks/agenda.php"); ?>
-			<?PHP require_once("./blocks/editors.php"); ?>
+			<?PHP include("./blocks/logos-mutuales.php"); ?>
 		</div>
 		<div class="contenido">
 			<div class="breadcrumb">
@@ -73,6 +67,7 @@
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-533976252b0cdbc3"></script>
 		<!-- AddThis Button END -->
 		<hr>
+		<div class="clear"></div>
 		<?PHP include("./blocks/ultimas-noticias-bottom.php"); ?>
 		<div class="clear"></div>
 	</div>

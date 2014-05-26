@@ -3,13 +3,19 @@
 	include("./classes/mysqlclass.php");
 	$db = new MySQL();
 	$consulta = $db->consulta("SELECT * FROM institutionals where id=10");
+	$error404 = false;
+	$title = "Institucionales";	
 	if($db->num_rows($consulta)>0){
 		$contenido = $db->fetch_array($consulta); 
+		$title = $contenido['title'];
+	}else{
+		$title = "Institucionales";
+		$error404 = true;
 	}
 ?>
 <html lang="esp">
   <head>
-    <title>Sanatorio del Salvador | <?PHP echo $contenido['title'];?></title>
+    <title>Sanatorio del Salvador | <?PHP echo $title;?></title>
 	<?PHP include("./layouts/common-header.php"); ?>
 	<script type="text/javascript" src="./js/paginador.js"></script>
   </head>

@@ -8,7 +8,7 @@
 	$server = 'localhost';
 	$user = 'root';
 	$password = '';
-	$nombreBD = 'dotplan_cms';
+	$nombreBD = 'dotplan_cms2';
 	
     if(!isset($this->conexion)){
       $this->conexion = (mysql_connect($server,$user,$password))or die(mysql_error());

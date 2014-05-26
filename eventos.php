@@ -2,15 +2,12 @@
 <?PHP 
 	require_once("./classes/mysqlclass.php");
 	$db = new MySQL();
-	$consulta = $db->consulta("SELECT * FROM institutionals where id=9");
-	if($db->num_rows($consulta)>0){
-	  $contenido = $db->fetch_array($consulta);
-	 }
 ?>
 <html lang="esp">
   <head>
-    <title>Sanatorio del Salvador | <?PHP echo $contenido['title'];?></title>
+    <title>Sanatorio del Salvador | Pr&oacute;ximos Eventos</title>
 	<?PHP include("./layouts/common-header.php"); ?>
+	<script type="text/javascript" src="js/paginador.js"></script>
   </head>
   <body>
 	<!--<div class="superior">[Menú]</div>-->
@@ -21,35 +18,46 @@
 		<div class="container">
 			<?PHP include("./layouts/menu.php"); ?>
 		</div>
-		<div class="agenda"><?PHP include("./blocks/cta-lateral.php"); ?></div>
+		<div class="agenda">
+			<?PHP include("./blocks/cta-lateral.php"); ?>
+			<?PHP require_once("./blocks/editors.php"); ?>
+		</div>
 		<div class="contenido">
 			<div class="breadcrumb">
 				<a href="./index.php"><i class="icon-home"></i></a> :: 
-				<a href="./quienes-somos.php">Quienes Somos</a>
+				<a href="./eventos.php">Pr&oacute;ximos Eventos</a>
 			</div>
 			<div id="contenedor">
-				<div class="pageTitle">Quienes <span>Somos</span></div>
-				<div class="actionsBody">
-					<button type="button" onclick="agrandar('.pageBody')">A+</button>
-					<button type="button" onclick="achicar('.pageBody')">A-</button>
+				<div class="pageTitle">Pr&oacute;ximos Eventos</span></div>
+				<div class="proximosEventos">
+					<?PHP $consulta = $db->consulta("SELECT * FROM events where status=1 and date_from > curdate() order by date_from asc");					
+					if($db->num_rows($consulta)>0){
+						while($MostrarFila=mysql_fetch_array($consulta)){
+						$date = date_create($MostrarFila['date_from']);?>
+						<a class="linkEvent" href="./evento.php?evento=<?PHP echo $MostrarFila['id'];?>">
+						<div class="eventHeaderList">	
+							<div class="bookmarkList" >
+								<abbr title="<?PHP echo $date->format('M');?>"><?PHP echo $date->format('M');?></abbr> <?PHP echo $date->format('d');?><sup></sup> <abbr><?PHP echo $date->format('Y');?></abbr>
+								<sub><?PHP echo $date->format('H:m');?></sub>
+							</div>
+							<div class="eventData">
+								<div class="eventTitle"><?PHP echo $MostrarFila['title'];?></div>
+								<div class="eventPlace"><b>Lugar: </b>&nbsp; <?PHP echo $MostrarFila['place'];?></div>
+								<div class="eventDestinations"><b>Destinado a:</b>&nbsp; <?PHP echo $MostrarFila['receivers'];?></div>
+							</div>
+						</div>
+						</a>
+					<?php }
+						} ?>
 				</div>
-				<div class="pageBody">
-					<?PHP echo $contenido['body'];?>
+				<div class="pageTitle">Eventos Anteriores</span></div>
+				<div id="eventosAnterioresAjax">
+					<?php include('./pagers/pager-eventos-anteriores.php')?>
 				</div>
 			</div>
 		</div>
-		<!-- AddThis Button BEGIN -->
-		<div class="addthis_toolbox addthis_default_style">
-			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-			<a class="addthis_button_tweet"></a>
-			<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-			<a class="addthis_counter addthis_pill_style"></a>
-		</div>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-533976252b0cdbc3"></script>
-		<!-- AddThis Button END -->
-		<hr>
-		<?PHP include("./blocks/ultimas-noticias-bottom.php"); ?>
 		<div class="clear"></div>
+		
 	</div>
 	<footer class="footer">
 		<div class="container">
